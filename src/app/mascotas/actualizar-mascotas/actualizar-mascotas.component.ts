@@ -10,13 +10,12 @@ import Swal from 'sweetalert2';
 @Component({
     selector: 'app-actualizar-mascotas',
     templateUrl: './actualizar-mascotas.component.html',
-    styles: [
-    ]
+    styles: []
 })
 export class ActualizarMascotasComponent {
 
     mascota: Mascota = new Mascota();
-    id:number;
+    id: number;
 
     clientes: Cliente[];
 
@@ -31,11 +30,11 @@ export class ActualizarMascotasComponent {
     diaActual = new Date();
 
     constructor(private mascotaService: MascotaService, private clienteService: ClienteService,
-                private router: Router, private activatedRoute: ActivatedRoute){}
+        private router: Router, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.id = this.activatedRoute.snapshot.params['id'];
-        this.mascotaService.obtenerMascota(this.id).subscribe( dato => {
+        this.mascotaService.obtenerMascota(this.id).subscribe(dato => {
             this.mascota = dato;
             Swal.fire(
                 'Actualización de Mascota',
@@ -58,29 +57,29 @@ export class ActualizarMascotasComponent {
         ];
 
         this.tipos = [
-            {name: 'Conejo'},
-            {name: 'Hamster'},
-            {name: 'Gato'},
-            {name: 'Loro'},
-            {name: 'Perro'}
+            { name: 'Conejo' },
+            { name: 'Hamster' },
+            { name: 'Gato' },
+            { name: 'Loro' },
+            { name: 'Perro' }
         ];
 
         this.razas = [
             {
-                label:'No definido',
-                value : 'No definido',
+                label: 'No definido',
+                value: 'No definido',
                 items: [
                     { label: 'No definido', value: 'No definido' }
                 ]
             }
             ,
             {
-                label:'Conejo',
-                value : 'Conejo',
+                label: 'Conejo',
+                value: 'Conejo',
                 items: [
                     { label: 'Belier', value: 'Belier' },
                     { label: 'Blanco', value: 'Blanco' },
-                    { label: 'Cabeza de León', value:'Cabeza de León' },
+                    { label: 'Cabeza de León', value: 'Cabeza de León' },
                     { label: 'Gigante', value: 'Gigante' },
                     { label: 'Rex', value: 'Rex' },
                     { label: 'Toy', value: 'Toy' }
@@ -88,8 +87,8 @@ export class ActualizarMascotasComponent {
             }
             ,
             {
-                label:'Hamster',
-                value : 'Hamster',
+                label: 'Hamster',
+                value: 'Hamster',
                 items: [
                     { label: 'Chino', value: 'Chino' },
                     { label: 'Dorado', value: 'Dorado' },
@@ -98,8 +97,8 @@ export class ActualizarMascotasComponent {
             }
             ,
             {
-                label:'Gato',
-                value : 'Gato',
+                label: 'Gato',
+                value: 'Gato',
                 items: [
                     { label: 'Angora', value: 'Gato' },
                     { label: 'Balinés', value: 'Gato' },
@@ -114,8 +113,8 @@ export class ActualizarMascotasComponent {
             }
             ,
             {
-                label:'Loro',
-                value : 'Loro',
+                label: 'Loro',
+                value: 'Loro',
                 items: [
                     { label: 'Cacatua', value: 'Cacatua' },
                     { label: 'Cotorra', value: 'Cotorra' },
@@ -127,8 +126,8 @@ export class ActualizarMascotasComponent {
             }
             ,
             {
-                label:'Perro',
-                value : 'Perro',
+                label: 'Perro',
+                value: 'Perro',
                 items: [
                     { label: 'Beagle', value: 'Beagle' },
                     { label: 'Bóxer', value: 'Bóxer' },
@@ -163,7 +162,7 @@ export class ActualizarMascotasComponent {
     }
 
     private obtenerClientesHabilitados() {
-        this.clienteService.obtenerclientesHabilitados().subscribe( dato => {
+        this.clienteService.obtenerclientesHabilitados().subscribe(dato => {
             this.clientes = dato;
         })
     }
@@ -183,11 +182,18 @@ export class ActualizarMascotasComponent {
                     `La Mascota: ${this.mascota.mascotaId} ha sido actualizada con éxito`,
                     'success'
                 )
-                this.mascotaService.actualizarMascota(this.id, this.mascota).subscribe( dato => {
+                this.mascotaService.actualizarMascota(this.id, this.mascota).subscribe(dato => {
                     this.router.navigate(['./mascotas']);
                 })
             }
         })
+    }
+
+    compararCliente(cliente1: Cliente, cliente2: Cliente): boolean {
+        if (cliente1 === undefined && cliente2 === undefined) {
+            return true;
+        }
+        return cliente1 === null || cliente2 === null || cliente1 === undefined || cliente2 === undefined ? false : cliente1.clienteId === cliente2.clienteId;
     }
 
     regresarListaMascotas() {
@@ -201,12 +207,13 @@ export class ActualizarMascotasComponent {
             confirmButtonText: 'Si, quiero cancelar la actualización!'
         }).then((result) => {
             if (result.isConfirmed) {
-            Swal.fire(
-                'Operación cancelada!',
-                'Has sido redirigido a la lista de mascotas.',
-                'error'
-            )
-            this.router.navigate(['./mascotas']);}
+                Swal.fire(
+                    'Operación cancelada!',
+                    'Has sido redirigido a la lista de mascotas.',
+                    'error'
+                )
+                this.router.navigate(['./mascotas']);
+            }
         })
     }
 

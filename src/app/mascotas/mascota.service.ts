@@ -13,22 +13,22 @@ export class MascotaService {
     constructor(private httpClient: HttpClient) { }
 
     obtenerListaMascotas(): Observable<Mascota[]> {
-        return this.httpClient.get<Mascota[]>(`${this.urlBackend}`)
+        return this.httpClient.get<Mascota[]>(`${this.urlBackend}`);
     }
 
-    crearMascota(mascota: Mascota): Observable<Object>{
-        return this.httpClient.post(`${this.urlBackend}`, mascota)
+    crearMascota(mascota: Mascota): Observable<Object> {
+        return this.httpClient.post(`${this.urlBackend}`, mascota);
     }
 
-    actualizarMascota(id: number, mascota: Mascota): Observable<object>{
+    actualizarMascota(id: number, mascota: Mascota): Observable<object> {
         return this.httpClient.put(`${this.urlBackend}/${id}`, mascota);
     }
 
-    obtenerMascota(id: number): Observable<Mascota>{
+    obtenerMascota(id: number): Observable<Mascota> {
         return this.httpClient.get<Mascota>(`${this.urlBackend}/${id}`);
     }
 
-    eliminarMascota(id: number): Observable<Object>{
+    eliminarMascota(id: number): Observable<Object> {
         return this.httpClient.delete(`${this.urlBackend}/${id}`);
     }
 }

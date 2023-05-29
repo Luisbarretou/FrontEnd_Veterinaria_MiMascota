@@ -9,8 +9,7 @@ import * as FileSaver from 'file-saver';
 @Component({
     selector: 'app-listar-mascotas',
     templateUrl: './listar-mascotas.component.html',
-    styles: [
-    ]
+    styles: []
 })
 export class ListarMascotasComponent {
 
@@ -26,7 +25,7 @@ export class ListarMascotasComponent {
 
     fechaActual = new Date();
 
-    constructor(private mascotaService: MascotaService, private router: Router){}
+    constructor(private mascotaService: MascotaService, private router: Router) { }
 
     ngOnInit(): void {
         this.listarMascotas();
@@ -37,12 +36,12 @@ export class ListarMascotasComponent {
             { field: 'mascotaNombre', header: 'Nombre' },
             { field: 'mascotaTipo', header: 'Tipo' },
             { field: 'mascotaRaza', header: 'Raza' },
-            { field: 'mascotaColor', header: 'Color'},
+            { field: 'mascotaColor', header: 'Color' },
             { field: 'mascotaFechaNacimiento', header: 'Fecha de Nacimiento' },
-            { field: 'mascotaSexo', header: 'Sexo'},
-            { field: 'mascotaObservaciones', header: 'Observaciones'},
-            { field: 'mascotaEstado', header: 'Estado'},
-            { field: 'mascotaFchaCreacion', header: 'Fecha de Creacion'}
+            { field: 'mascotaSexo', header: 'Sexo' },
+            { field: 'mascotaObservaciones', header: 'Observaciones' },
+            { field: 'mascotaEstado', header: 'Estado' },
+            { field: 'mascotaFchaCreacion', header: 'Fecha de Creacion' }
         ];
 
         this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
@@ -52,17 +51,17 @@ export class ListarMascotasComponent {
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
 
-    private listarMascotas(){
-        this.mascotaService.obtenerListaMascotas().subscribe( dato => {
-        this.mascotas = dato;
-        })
+    private listarMascotas() {
+        this.mascotaService.obtenerListaMascotas().subscribe(dato => {
+            this.mascotas = dato;
+        });
     }
 
-    actualizaMascota(id: number){
+    actualizaMascota(id: number) {
         this.router.navigate([`actualizar-mascotas`, id]);
     }
 
-    detalleMascota(id: number){
+    detalleMascota(id: number) {
         this.router.navigate([`detalle-mascotas`, id]);
     }
 
@@ -85,7 +84,6 @@ export class ListarMascotasComponent {
         }).then((result) => {
             if (result.value) {
                 this.mascotaService.eliminarMascota(mascota.mascotaId).subscribe(dato => {
-                    console.log(dato);
                     this.listarMascotas();
                     swalWithBootstrapButtons.fire(
                         'Mascota Eliminada!',
@@ -106,17 +104,6 @@ export class ListarMascotasComponent {
         })
     }
 
-    // exportPdf() {
-    //     import('jspdf').then((jsPDF) => {
-    //         import('jspdf-autotable').then((x) => {
-    //             let actual = this.fechaActual.toLocaleString();
-    //             const doc = new jsPDF.default('p', 'px', 'a4');
-    //             (doc as any).autoTable(this.exportColumns, this.mascotas);
-    //             doc.save(`mascotas_${actual}.pdf`);
-    //         });
-    //     });
-    // }
-
     exportPdf(mascotas: Mascota[]): void {
         import('jspdf').then((jsPDF) => {
             import('jspdf-autotable').then((x) => {
@@ -131,7 +118,7 @@ export class ListarMascotasComponent {
                 });
 
                 // Configurar la estructura de la tabla
-                const tableHeaders = ['ID', 'Nombre', 'Tipo', 'Raza', 'Color', 'Fcha Nacimiento', 'Sexo',' Observaciones',' Estado',' Fcha Creacion', 'Propietario', 'Dni'];
+                const tableHeaders = ['ID', 'Nombre', 'Tipo', 'Raza', 'Color', 'Fcha Nacimiento', 'Sexo', ' Observaciones', ' Estado', ' Fcha Creacion', 'Propietario', 'Dni'];
                 (doc as any).autoTable({ head: [tableHeaders], body: tableData });
 
                 // Guardar el PDF
@@ -152,7 +139,7 @@ export class ListarMascotasComponent {
 
             const worksheet = xlsx.utils.json_to_sheet(tableData);
             const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
-            xlsx.utils.sheet_add_aoa(worksheet, [['ID', 'Nombre', 'Tipo', 'Raza', 'Color', 'Fcha Nacimiento', 'Sexo',' Observaciones',' Estado',' Fcha Creacion', 'Propietario', 'Dni']]);
+            xlsx.utils.sheet_add_aoa(worksheet, [['ID', 'Nombre', 'Tipo', 'Raza', 'Color', 'Fcha Nacimiento', 'Sexo', ' Observaciones', ' Estado', ' Fcha Creacion', 'Propietario', 'Dni']]);
             const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
             this.saveAsExcelFile(excelBuffer, 'mascotas');
         });

@@ -49,6 +49,10 @@ import { ListarMascotasComponent } from './mascotas/listar-mascotas/listar-masco
 import { CrearMascotasComponent } from './mascotas/crear-mascotas/crear-mascotas.component';
 import { ActualizarMascotasComponent } from './mascotas/actualizar-mascotas/actualizar-mascotas.component';
 import { DetalleMascotasComponent } from './mascotas/detalle-mascotas/detalle-mascotas.component';
+import { ListarHistoriasComponent } from './historias/listar-historias/listar-historias.component';
+import { CrearHistoriasComponent } from './historias/crear-historias/crear-historias.component';
+import { ActualizarHistoriasComponent } from './historias/actualizar-historias/actualizar-historias.component';
+import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle-historias.component';
 
 @NgModule({
     declarations: [
@@ -61,7 +65,11 @@ import { DetalleMascotasComponent } from './mascotas/detalle-mascotas/detalle-ma
         ListarMascotasComponent,
         CrearMascotasComponent,
         ActualizarMascotasComponent,
-        DetalleMascotasComponent
+        DetalleMascotasComponent,
+        ListarHistoriasComponent,
+        CrearHistoriasComponent,
+        ActualizarHistoriasComponent,
+        DetalleHistoriasComponent
     ],
     imports: [
         AppRoutingModule,
