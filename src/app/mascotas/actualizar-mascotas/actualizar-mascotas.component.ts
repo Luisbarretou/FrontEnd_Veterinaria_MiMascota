@@ -162,7 +162,7 @@ export class ActualizarMascotasComponent {
     }
 
     private obtenerClientesHabilitados() {
-        this.clienteService.obtenerclientesHabilitados().subscribe(dato => {
+        this.clienteService.obtenerClientesHabilitados().subscribe(dato => {
             this.clientes = dato;
         })
     }
@@ -189,6 +189,7 @@ export class ActualizarMascotasComponent {
         })
     }
 
+    /////////////////////////
     compararCliente(cliente1: Cliente, cliente2: Cliente): boolean {
         if (cliente1 === undefined && cliente2 === undefined) {
             return true;

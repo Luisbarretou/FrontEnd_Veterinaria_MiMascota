@@ -10,8 +10,7 @@ import { Cliente } from 'src/app/clientes/cliente';
 @Component({
     selector: 'app-crear-mascotas',
     templateUrl: './crear-mascotas.component.html',
-    styles: [
-    ]
+    styles: []
 })
 export class CrearMascotasComponent {
 
@@ -30,7 +29,7 @@ export class CrearMascotasComponent {
     diaActual = new Date();
 
     constructor(private mascotaService: MascotaService, private clienteService: ClienteService,
-                private router: Router){}
+        private router: Router) { }
 
     ngOnInit(): void {
         this.obtenerClientesHabilitados();
@@ -42,29 +41,30 @@ export class CrearMascotasComponent {
         ];
 
         this.tipos = [
-            {name: 'Conejo'},
-            {name: 'Hamster'},
-            {name: 'Gato'},
-            {name: 'Loro'},
-            {name: 'Perro'}
+            { name: 'No definido' },
+            { name: 'Conejo' },
+            { name: 'Hamster' },
+            { name: 'Gato' },
+            { name: 'Loro' },
+            { name: 'Perro' }
         ];
 
         this.razas = [
             {
-                label:'No definido',
-                value : 'No definido',
+                label: 'No definido',
+                value: 'No definido',
                 items: [
                     { label: 'No definido', value: 'No definido' }
                 ]
             }
             ,
             {
-                label:'Conejo',
-                value : 'Conejo',
+                label: 'Conejo',
+                value: 'Conejo',
                 items: [
                     { label: 'Belier', value: 'Belier' },
                     { label: 'Blanco', value: 'Blanco' },
-                    { label: 'Cabeza de León', value:'Cabeza de León' },
+                    { label: 'Cabeza de León', value: 'Cabeza de León' },
                     { label: 'Gigante', value: 'Gigante' },
                     { label: 'Rex', value: 'Rex' },
                     { label: 'Toy', value: 'Toy' }
@@ -72,8 +72,8 @@ export class CrearMascotasComponent {
             }
             ,
             {
-                label:'Hamster',
-                value : 'Hamster',
+                label: 'Hamster',
+                value: 'Hamster',
                 items: [
                     { label: 'Chino', value: 'Chino' },
                     { label: 'Dorado', value: 'Dorado' },
@@ -82,8 +82,8 @@ export class CrearMascotasComponent {
             }
             ,
             {
-                label:'Gato',
-                value : 'Gato',
+                label: 'Gato',
+                value: 'Gato',
                 items: [
                     { label: 'Angora', value: 'Gato' },
                     { label: 'Balinés', value: 'Gato' },
@@ -98,8 +98,8 @@ export class CrearMascotasComponent {
             }
             ,
             {
-                label:'Loro',
-                value : 'Loro',
+                label: 'Loro',
+                value: 'Loro',
                 items: [
                     { label: 'Cacatua', value: 'Cacatua' },
                     { label: 'Cotorra', value: 'Cotorra' },
@@ -111,8 +111,8 @@ export class CrearMascotasComponent {
             }
             ,
             {
-                label:'Perro',
-                value : 'Perro',
+                label: 'Perro',
+                value: 'Perro',
                 items: [
                     { label: 'Beagle', value: 'Beagle' },
                     { label: 'Bóxer', value: 'Bóxer' },
@@ -146,21 +146,25 @@ export class CrearMascotasComponent {
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
 
-    private obtenerClientesHabilitados(){
-        this.clienteService.obtenerclientesHabilitados().subscribe( dato => {
+    private obtenerClientesHabilitados() {
+        this.clienteService.obtenerClientesHabilitados().subscribe(dato => {
             this.clientes = dato;
         })
     }
 
-    registroMascota(){
-        this.mascotaService.crearMascota(this.mascota).subscribe( dato => {
+    registroMascota() {
+        this.mascotaService.crearMascota(this.mascota).subscribe(dato => {
             this.regresarListaMascotas();
         })
     }
 
     regresarListaMascotas() {
         this.router.navigate(['./mascotas']);
-        Swal.fire('Mascota creada', `La Mascota: "${this.mascota.mascotaNombre}" ha sido creada con exito`, `success`);
+        Swal.fire(
+            'Mascota creada',
+            `La Mascota: "${this.mascota.mascotaNombre}" ha sido creada con exito`,
+            `success`
+        );
     }
 
 }

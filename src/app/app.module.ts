@@ -30,6 +30,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { CardModule } from 'primeng/card';
 import { AvatarModule } from 'primeng/avatar';
 import { SplitterModule } from 'primeng/splitter';
+import { DialogModule } from 'primeng/dialog';
 
 
 // import { NotfoundComponent } from './demo/components/notfound/notfound.component';
@@ -50,7 +51,6 @@ import { CrearMascotasComponent } from './mascotas/crear-mascotas/crear-mascotas
 import { ActualizarMascotasComponent } from './mascotas/actualizar-mascotas/actualizar-mascotas.component';
 import { DetalleMascotasComponent } from './mascotas/detalle-mascotas/detalle-mascotas.component';
 import { ListarHistoriasComponent } from './historias/listar-historias/listar-historias.component';
-import { CrearHistoriasComponent } from './historias/crear-historias/crear-historias.component';
 import { ActualizarHistoriasComponent } from './historias/actualizar-historias/actualizar-historias.component';
 import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle-historias.component';
 
@@ -67,7 +67,6 @@ import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle
         ActualizarMascotasComponent,
         DetalleMascotasComponent,
         ListarHistoriasComponent,
-        CrearHistoriasComponent,
         ActualizarHistoriasComponent,
         DetalleHistoriasComponent
     ],
@@ -78,21 +77,21 @@ import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle
         BreadcrumbModule,
         TagModule,
         FormsModule,
-		AutoCompleteModule,
-		CalendarModule,
-		ChipsModule,
-		DropdownModule,
-		InputMaskModule,
-		InputNumberModule,
-		CascadeSelectModule,
-		MultiSelectModule,
-		InputTextareaModule,
-		InputTextModule,
+        AutoCompleteModule,
+        CalendarModule,
+        ChipsModule,
+        DropdownModule,
+        InputMaskModule,
+        InputNumberModule,
+        CascadeSelectModule,
+        MultiSelectModule,
+        InputTextareaModule,
+        InputTextModule,
         MessagesModule,
-		MessageModule,
-		ButtonModule,
-		ToastModule,
-		InputTextModule,
+        MessageModule,
+        ButtonModule,
+        ToastModule,
+        InputTextModule,
         PaginatorModule,
         ChartModule,
         MenuModule,
@@ -101,7 +100,8 @@ import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle
         StyleClassModule,
         CardModule,
         AvatarModule,
-        SplitterModule
+        SplitterModule,
+        DialogModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy }/*,

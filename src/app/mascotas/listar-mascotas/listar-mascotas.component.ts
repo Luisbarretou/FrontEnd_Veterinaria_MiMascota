@@ -47,7 +47,6 @@ export class ListarMascotasComponent {
         this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
 
         this.items = [{ label: 'Mascota' }, { label: 'Lista' }];
-
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
 

@@ -11,24 +11,32 @@ import { ListarMascotasComponent } from './mascotas/listar-mascotas/listar-masco
 import { CrearMascotasComponent } from './mascotas/crear-mascotas/crear-mascotas.component';
 import { ActualizarMascotasComponent } from './mascotas/actualizar-mascotas/actualizar-mascotas.component';
 import { DetalleMascotasComponent } from './mascotas/detalle-mascotas/detalle-mascotas.component';
+import { ListarHistoriasComponent } from './historias/listar-historias/listar-historias.component';
+import { ActualizarHistoriasComponent } from './historias/actualizar-historias/actualizar-historias.component';
+import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle-historias.component';
 
 const routes: Routes = [
 
-    {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-    {path: 'dashboard', component: DashboardComponent },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: DashboardComponent },
 
-    {path: 'clientes', component: ListarClientesComponent},
-    {path: '', redirectTo: '/clientes', pathMatch: 'full'},
-    {path: 'crear-clientes', component: CrearClientesComponent},
-    {path: 'actualizar-clientes/:id', component: ActualizarClientesComponent},
-    {path: 'detalle-clientes/:id', component: DetalleClientesComponent},
+    { path: 'clientes', component: ListarClientesComponent },
+    { path: '', redirectTo: '/clientes', pathMatch: 'full' },
+    { path: 'crear-clientes', component: CrearClientesComponent },
+    { path: 'actualizar-clientes/:id', component: ActualizarClientesComponent },
+    { path: 'detalle-clientes/:id', component: DetalleClientesComponent },
 
-    {path: 'mascotas', component: ListarMascotasComponent},
-    {path: '', redirectTo: '/mascotas', pathMatch: 'full'},
-    {path: 'crear-mascotas', component: CrearMascotasComponent},
-    {path: 'actualizar-mascotas/:id', component: ActualizarMascotasComponent},
-    {path: 'detalle-mascotas/:id', component: DetalleMascotasComponent}
-    ];
+    { path: 'mascotas', component: ListarMascotasComponent },
+    { path: '', redirectTo: '/mascotas', pathMatch: 'full' },
+    { path: 'crear-mascotas', component: CrearMascotasComponent },
+    { path: 'actualizar-mascotas/:id', component: ActualizarMascotasComponent },
+    { path: 'detalle-mascotas/:id', component: DetalleMascotasComponent },
+
+    { path: 'historias', component: ListarHistoriasComponent },
+    { path: '', redirectTo: '/historias', pathMatch: 'full' },
+    { path: 'actualizar-historias/:id', component: ActualizarHistoriasComponent },
+    { path: 'detalle-historias/:id', component: DetalleHistoriasComponent },
+];
 
 @NgModule({
     // imports: [

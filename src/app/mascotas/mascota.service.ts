@@ -16,6 +16,10 @@ export class MascotaService {
         return this.httpClient.get<Mascota[]>(`${this.urlBackend}`);
     }
 
+    obtenerMascotasHabilitados(): Observable<Mascota[]> {
+        return this.httpClient.get<Mascota[]>(`${this.urlBackend}/habilitadas`)
+    }
+
     crearMascota(mascota: Mascota): Observable<Object> {
         return this.httpClient.post(`${this.urlBackend}`, mascota);
     }

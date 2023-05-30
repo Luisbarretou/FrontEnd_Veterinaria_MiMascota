@@ -10,6 +10,14 @@
                         (*)</label>
                 </div>
                 <div class="field grid">
+                    <label for="cliente" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Cliente</label>
+                    <div class="col-12 md:col-8">
+                        <p-dropdown class="p-inputtext-lg" [options]="clientes" [(ngModel)]="mascota.cliente"
+                            optionLabel="clienteNombre" [filter]="true" id="cliente" name="cliente" #cliente="ngModel"
+                            placeholder="Sin seleccionar" [required]="true"></p-dropdown>
+                    </div>
+                </div>
+                <div class="field grid">
                     <label for="nombre" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Nombre (*)</label>
                     <div class="col-12 md:col-8">
                         <span class="p-input-icon-left">
@@ -88,14 +96,6 @@
                             <p-dropdown [options]="estado" class="p-inputtext-lg" [(ngModel)]="mascota.mascotaEstado"
                                 name="mascotaEstado" #mascotaEstado="ngModel"></p-dropdown>
                         </span>
-                    </div>
-                </div>
-                <div class="field grid">
-                    <label for="cliente" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Cliente</label>
-                    <div class="col-12 md:col-8">
-                        <p-dropdown class="p-inputtext-lg" [options]="clientes" [(ngModel)]="mascota.cliente"
-                            optionLabel="clienteNombre" [filter]="true" id="cliente" name="cliente" #cliente="ngModel"
-                            placeholder="Sin seleccionar"></p-dropdown>
                     </div>
                 </div>
             </div>

@@ -16,23 +16,23 @@ export class ClienteService {
         return this.httpClient.get<Cliente[]>(`${this.urlBackend}`)
     }
 
-    obtenerclientesHabilitados(): Observable<Cliente[]> {
+    obtenerClientesHabilitados(): Observable<Cliente[]> {
         return this.httpClient.get<Cliente[]>(`${this.urlBackend}/habilitados`)
     }
 
-    crearCliente(cliente: Cliente): Observable<Object>{
+    crearCliente(cliente: Cliente): Observable<Object> {
         return this.httpClient.post(`${this.urlBackend}`, cliente)
     }
 
-    actualizarCliente(id: number, cliente: Cliente): Observable<object>{
+    actualizarCliente(id: number, cliente: Cliente): Observable<object> {
         return this.httpClient.put(`${this.urlBackend}/${id}`, cliente);
     }
 
-    obtenerCliente(id: number): Observable<Cliente>{
+    obtenerCliente(id: number): Observable<Cliente> {
         return this.httpClient.get<Cliente>(`${this.urlBackend}/${id}`);
     }
 
-    eliminarCliente(id: number): Observable<Object>{
+    eliminarCliente(id: number): Observable<Object> {
         return this.httpClient.delete(`${this.urlBackend}/${id}`);
     }
 

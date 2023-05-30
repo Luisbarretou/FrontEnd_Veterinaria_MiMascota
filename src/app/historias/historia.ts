@@ -5,5 +5,4 @@ export class Historia {
     historiaFechaCreacion: string;
     historiaEstado: string;
     mascota: Mascota;
-
 }
