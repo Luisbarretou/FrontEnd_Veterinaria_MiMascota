@@ -14,6 +14,10 @@ import { DetalleMascotasComponent } from './mascotas/detalle-mascotas/detalle-ma
 import { ListarHistoriasComponent } from './historias/listar-historias/listar-historias.component';
 import { ActualizarHistoriasComponent } from './historias/actualizar-historias/actualizar-historias.component';
 import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle-historias.component';
+import { ListarEspecialistasComponent } from './especialistas/listar-especialistas/listar-especialistas.component';
+import { CrearEspecialistasComponent } from './especialistas/crear-especialistas/crear-especialistas.component';
+import { ActualizarEspecialistasComponent } from './especialistas/actualizar-especialistas/actualizar-especialistas.component';
+import { DetalleEspecialistasComponent } from './especialistas/detalle-especialistas/detalle-especialistas.component';
 
 const routes: Routes = [
 
@@ -36,6 +40,12 @@ const routes: Routes = [
     { path: '', redirectTo: '/historias', pathMatch: 'full' },
     { path: 'actualizar-historias/:id', component: ActualizarHistoriasComponent },
     { path: 'detalle-historias/:id', component: DetalleHistoriasComponent },
+
+    { path: 'especialistas', component: ListarEspecialistasComponent },
+    { path: '', redirectTo: '/especialistas', pathMatch: 'full' },
+    { path: 'crear-especialistas', component: CrearEspecialistasComponent },
+    { path: 'actualizar-especialistas/:id', component: ActualizarEspecialistasComponent },
+    { path: 'detalle-especialistas/:id', component: DetalleEspecialistasComponent },
 ];
 
 @NgModule({

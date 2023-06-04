@@ -53,6 +53,10 @@ import { DetalleMascotasComponent } from './mascotas/detalle-mascotas/detalle-ma
 import { ListarHistoriasComponent } from './historias/listar-historias/listar-historias.component';
 import { ActualizarHistoriasComponent } from './historias/actualizar-historias/actualizar-historias.component';
 import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle-historias.component';
+import { ListarEspecialistasComponent } from './especialistas/listar-especialistas/listar-especialistas.component';
+import { CrearEspecialistasComponent } from './especialistas/crear-especialistas/crear-especialistas.component';
+import { ActualizarEspecialistasComponent } from './especialistas/actualizar-especialistas/actualizar-especialistas.component';
+import { DetalleEspecialistasComponent } from './especialistas/detalle-especialistas/detalle-especialistas.component';
 
 @NgModule({
     declarations: [
@@ -68,7 +72,11 @@ import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle
         DetalleMascotasComponent,
         ListarHistoriasComponent,
         ActualizarHistoriasComponent,
-        DetalleHistoriasComponent
+        DetalleHistoriasComponent,
+        ListarEspecialistasComponent,
+        CrearEspecialistasComponent,
+        ActualizarEspecialistasComponent,
+        DetalleEspecialistasComponent
     ],
     imports: [
         AppRoutingModule,
