@@ -17,6 +17,7 @@ export class DetalleClientesComponent {
     cliente: Cliente;
     //Este es un comentario de prueba
     //para la rama karen
+    //Debes hacer tu pullRequest
 
     items: MenuItem[];
     home: MenuItem;
