@@ -21,6 +21,8 @@ export class ListarClientesComponent {
     cols: any[];
     exportColumns: any[];
 
+    //comentario del main
+
     items: MenuItem[];
     home: MenuItem;
 
