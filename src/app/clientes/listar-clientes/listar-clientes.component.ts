@@ -17,6 +17,8 @@ export class ListarClientesComponent {
     clientes: Cliente[];
     pageActual: number = 1;
 
+    //Esto es un comentario de prueba
+
     seleccionCliente: Cliente[];
     cols: any[];
     exportColumns: any[];
