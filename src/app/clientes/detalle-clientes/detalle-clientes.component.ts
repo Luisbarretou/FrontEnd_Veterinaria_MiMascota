@@ -15,16 +15,17 @@ export class DetalleClientesComponent {
 
     id: number;
     cliente: Cliente;
+    //Este es un comentario de prueba
 
     items: MenuItem[];
     home: MenuItem;
 
     constructor(private clienteService: ClienteService, private activateRoute: ActivatedRoute,
-                private router: Router){}
+        private router: Router) { }
 
     ngOnInit(): void {
         this.id = this.activateRoute.snapshot.params['id'];
-        this.clienteService.obtenerCliente(this.id).subscribe( dato => {
+        this.clienteService.obtenerCliente(this.id).subscribe(dato => {
             this.cliente = dato;
             Swal.fire(
                 'Detalle del Cliente',
