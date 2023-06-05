@@ -15,7 +15,6 @@ export class DetalleClientesComponent {
 
     id: number;
     cliente: Cliente;
-    clientes: Cliente[];
 
     items: MenuItem[];
     home: MenuItem;
