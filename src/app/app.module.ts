@@ -57,6 +57,10 @@ import { ListarEspecialistasComponent } from './especialistas/listar-especialist
 import { CrearEspecialistasComponent } from './especialistas/crear-especialistas/crear-especialistas.component';
 import { ActualizarEspecialistasComponent } from './especialistas/actualizar-especialistas/actualizar-especialistas.component';
 import { DetalleEspecialistasComponent } from './especialistas/detalle-especialistas/detalle-especialistas.component';
+import { ListarProveedoresComponent } from './proveedores/listar-proveedores/listar-proveedores.component';
+import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
+import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveedores/actualizar-proveedores.component';
+import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
 
 @NgModule({
     declarations: [
@@ -76,7 +80,11 @@ import { DetalleEspecialistasComponent } from './especialistas/detalle-especiali
         ListarEspecialistasComponent,
         CrearEspecialistasComponent,
         ActualizarEspecialistasComponent,
-        DetalleEspecialistasComponent
+        DetalleEspecialistasComponent,
+        ListarProveedoresComponent,
+        CrearProveedoresComponent,
+        ActualizarProveedoresComponent,
+        DetalleProveedoresComponent
     ],
     imports: [
         AppRoutingModule,
