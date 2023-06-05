@@ -1,0 +1,59 @@
+<div class="card">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+    <h1 style="font-family: 'Poppins', sans-serif;">Datos Completos</h1>
+    <p-card>
+        <div class="container mb-5" style="text-align: center;">
+            <p-avatar icon="pi pi-user" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+        </div>
+        <div style="font-family: 'Poppins', sans-serif;" class="container">
+            <p-splitter styleClass="mb-5">
+                <ng-template pTemplate>
+                    <div style="font-family: 'Poppins', sans-serif;" class="col block align-items-center justify-content-center">
+                        <h4><b>ID: </b></h4>
+                        <h4><b>NOMBRE: </b></h4>
+                        <h4><b>TIPO: </b></h4>
+                        <h4><b>RAZA: </b></h4>
+                        <h4><b>FECHA DE NACIMIENTO: </b></h4>
+                        <h4><b>COLOR: </b></h4>
+                        <h4><b>SEXO: </b></h4>
+                        <h4><b>ESTADO: </b></h4>
+                        <h4><b>FECHA DE CREACION: </b></h4>
+                        <h4><b>OBSERVACIONES: </b></h4>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate>
+                    <div style="font-family: 'Poppins', sans-serif;" class="col block align-items-center justify-content-center">
+                        <h4>{{mascota.mascotaId}}</h4>
+                        <h4>{{mascota.mascotaNombre}}</h4>
+                        <h4>{{mascota.mascotaTipo}}</h4>
+                        <h4>{{mascota.mascotaRaza}}</h4>
+                        <h4>{{mascota.mascotaFechaNacimiento}}</h4>
+                        <h4>{{mascota.mascotaColor}}</h4>
+                        <h4>{{mascota.mascotaSexo}}</h4>
+                        <h4>{{mascota.mascotaEstado}}</h4>
+                        <h4>{{mascota.mascotaFchaCreacion}}</h4>
+                        <h4>{{mascota.mascotaObservaciones}}</h4>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate>
+                    <div style="font-family: 'Poppins', sans-serif;" class="col block align-items-center justify-content-center">
+                        <h4><b>Datos del Propietario</b></h4>
+                        <h4><b>Nombre:</b> {{mascota.cliente.clienteNombre}}</h4>
+                        <h4><b>Nro Documento:</b> {{mascota.cliente.clienteNroDocumento}}</h4>
+                        <h4><b>Direccion:</b> {{mascota.cliente.clienteDireccion}}</h4>
+                        <h4><b>Telefono:</b> {{mascota.cliente.clienteTelefono}}</h4>
+                        <!-- <a (click)="detalleCliente(mascota.cliente.clienteId)" class="btn btn-primary">Mas Informacion</a> -->
+                        <p-button (click)="detalleCliente(mascota.cliente.clienteId)" icon="pi pi-search" styleClass="p-button-rounded p-button-success p-button-text p-button-raised" label="Mas informcación"></p-button>
+                    </div>
+                </ng-template>
+            </p-splitter>
+            <div class="field grid">
+                <div class="col-12 md:col-12">
+                    <p-button (click)="regresarListaMascotas()" icon="pi pi-arrow-left" label="Regresar" styleClass="p-button-outlined p-button-danger"></p-button>
+                </div>
+            </div>
+        </div>
+    </p-card>
+</div>
+
+

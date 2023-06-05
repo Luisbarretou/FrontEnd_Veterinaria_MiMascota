@@ -1,0 +1,58 @@
+<div class="card">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+    <h1 style="font-family: 'Poppins', sans-serif;">Lista de Servicios</h1>
+    <p-table #dt [columns]="cols" [value]="servicios" selectionMode="multiple" [(selection)]="seleccionServicio" [exportHeader]="'customExportHeader'" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25, 50]">
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <button type="button" pButton pRipple icon="pi pi-download" (click)="dt.exportCSV()" class="p-button-help mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+                <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()" class="p-button-success mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
+                <button type="button" pButton pRipple icon="pi pi-file-pdf" (click)="exportPdf()" class="p-button-warning mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+                <button type="button" pButton pRipple icon="pi pi-file-export" (click)="dt.exportCSV({ selectionOnly: true })" class="p-button-info ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th pSortableColumn="servicioCategoria">CATEGORIA<p-sortIcon field="servicioCategoria"></p-sortIcon></th>
+                <th pSortableColumn="servicioTipo">TIPO<p-sortIcon field="servicioTipo"></p-sortIcon></th>
+                <th pSortableColumn="servicioPrecio">PRECIO<p-sortIcon field="servicioPrecio"></p-sortIcon></th>
+                <th>ESTADO</th>
+                <th>ACCIONES</th>
+            </tr>
+            <tr>
+                <th>
+                    <p-columnFilter type="text" field="servicioId"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="servicioCategoria"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="servicioTipo"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="servicioPrecio"></p-columnFilter>
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns" let-servicio>
+            <tr [pSelectableRow]="rowData">
+                <td>{{servicio.servicioId}}</td>
+                <td>{{servicio.servicioCategoria}}</td>
+                <td>{{servicio.servicioTipo}}</td>
+                <td>{{servicio.servicioPrecio}}</td>
+                <td>
+                    <p-tag [value]="servicio.servicioEstado" [severity]="obtenerEstado(servicio.servicioEstado)"></p-tag>
+                </td>
+                <td>
+                    <div class="flex justify-content-start flex-wrap gap-3 mb-4">
+                        <p-button icon="pi pi-info-circle" styleClass="p-button-rounded p-button-info p-button-text p-button-raised" (click)="detalleServicio(servicio.servicioId)"></p-button>
+                        <p-button icon="pi pi-pencil" styleClass="p-button-rounded p-button-warning p-button-text p-button-raised" (click)="actualizaServicio(servicio.servicioId)"></p-button>
+                        <p-button icon="pi pi-trash" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised" (click)="eliminarServicio(servicio)"></p-button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
