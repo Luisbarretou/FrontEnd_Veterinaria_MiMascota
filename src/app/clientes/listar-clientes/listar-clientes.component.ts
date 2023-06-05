@@ -17,8 +17,6 @@ export class ListarClientesComponent {
     clientes: Cliente[];
     pageActual: number = 1;
 
-    //Esto es un comentario de prueba
-
     seleccionCliente: Cliente[];
     cols: any[];
     exportColumns: any[];
@@ -38,12 +36,12 @@ export class ListarClientesComponent {
             { field: 'clienteId', header: 'Codigo', customExportHeader: 'Cliente' },
             { field: 'clienteNroDocumento', header: 'Documento' },
             { field: 'clienteNombre', header: 'Nombres' },
-            { field: 'clienteTelefono', header: 'Telefono'},
+            { field: 'clienteTelefono', header: 'Telefono' },
             { field: 'clienteDireccion', header: 'Direccion' },
-            { field: 'clienteCorreo', header: 'Correo'},
-            { field: 'clienteGenero', header: 'Genero'},
-            { field: 'clienteEstado', header: 'Estado'},
-            { field: 'clienteFchaCreacion', header: 'Fecha de Creacion'}
+            { field: 'clienteCorreo', header: 'Correo' },
+            { field: 'clienteGenero', header: 'Genero' },
+            { field: 'clienteEstado', header: 'Estado' },
+            { field: 'clienteFchaCreacion', header: 'Fecha de Creacion' }
         ];
 
         this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
@@ -53,17 +51,17 @@ export class ListarClientesComponent {
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
 
-    private listarClientes(){
-        this.clienteService.obtenerListaClientes().subscribe( dato => {
-        this.clientes = dato;
+    private listarClientes() {
+        this.clienteService.obtenerListaClientes().subscribe(dato => {
+            this.clientes = dato;
         })
     }
 
-    actualizaCliente(id: number){
+    actualizaCliente(id: number) {
         this.router.navigate([`actualizar-clientes`, id]);
     }
 
-    detalleCliente(id: number){
+    detalleCliente(id: number) {
         this.router.navigate([`detalle-clientes`, id]);
     }
 
