@@ -20,6 +20,11 @@ export class CrearServiciosComponent {
 
     constructor(private servicioService: ServicioService, private router: Router) { }
 
+    ngOnInit(): void {
+    this.items = [{ label: 'Servicio', routerLink: '/servicios' }, { label: 'Registro' }];
+    this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
+    }
+
     registroServicio(){
         this.servicioService.crearServicio(this.servicio).subscribe( dato => {
             this.regresarListaServicios();

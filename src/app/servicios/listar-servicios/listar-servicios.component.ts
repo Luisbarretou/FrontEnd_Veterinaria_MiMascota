@@ -37,9 +37,9 @@ export class ListarServiciosComponent {
             { field: 'servicioId', header: 'Codigo', customExportHeader: 'Servicio' },
             { field: 'servicioCategoria', header: 'Categoria' },
             { field: 'servicioTipo', header: 'Tipo' },
+            { field: 'servicioPrecio', header: 'Precio' },
             { field: 'servicioEstado', header: 'Estado' },
-            { field: 'servicioFchaCreacion', header: 'Fecha de creacion' },
-            { field: 'servicioPrecio', header: 'Precio' }
+            { field: 'servicioFchaCreacion', header: 'Fecha de Creacion' }
         ];
 
         this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
@@ -105,13 +105,13 @@ export class ListarServiciosComponent {
         import('jspdf').then((jsPDF) => {
             import('jspdf-autotable').then((x) => {
                 let actual = this.fechaActual.toLocaleString();
-                const doc = new jsPDF.default('p', 'px', 'a4');
+                const doc = new jsPDF.default('l', 'px', 'a4');
                 (doc as any).autoTable(this.exportColumns, this.servicios);
                 doc.save(`servicios_${actual}.pdf`);
             });
         });
     }
-
+    
     exportExcel() {
         import('xlsx').then((xlsx) => {
             const worksheet = xlsx.utils.json_to_sheet(this.servicios);

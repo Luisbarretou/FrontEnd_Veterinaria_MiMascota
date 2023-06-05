@@ -27,20 +27,20 @@
                     </div>
                 </div>
                 <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Precio S/ (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <!--<i class="pi pi-soles"></i>-->
+                            <input type="number" class="p-inputtext-lg" pInputText [(ngModel)]="servicio.servicioPrecio" name="servicioPrecio" #servicioPrecio="ngModel" required>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
                     <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Estado</label>
                     <div class="col-12 md:col-8">
                         <span class="p-input-icon-left">
                             <i class="pi pi-lock"></i>
                             <input type="text" class="p-inputtext-lg" pInputText placeholder="Habilitado" [(ngModel)]="servicio.servicioEstado" name="servicioEstado" #servicioEstado="ngModel" disabled=""/>
-                        </span>
-                    </div>
-                </div>
-                <div class="field grid">
-                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Precio S/ (*)</label>
-                    <div class="col-12 md:col-8">
-                        <span class="p-input-icon-left">
-                            <!--<i class="pi pi-soles"></i>-->
-                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="servicio.servicioPrecio" name="servicioPrecio" #servicioPrecio="ngModel" required>
                         </span>
                     </div>
                 </div>
@@ -52,4 +52,5 @@
                 </div>
             </div>
         </form>
+    </div>    
 </div>
