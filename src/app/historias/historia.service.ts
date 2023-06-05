@@ -16,10 +16,6 @@ export class HistoriaService {
         return this.httpClient.get<Historia[]>(`${this.urlBackend}`);
     }
 
-    obtenerHistoria(id: number): Observable<Historia> {
-        return this.httpClient.get<Historia>(`${this.urlBackend}/${id}`);
-    }
-
     crearHistoria(historia: Historia): Observable<object> {
         return this.httpClient.post(`${this.urlBackend}`, historia);
     }

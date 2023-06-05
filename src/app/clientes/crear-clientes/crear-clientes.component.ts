@@ -40,7 +40,7 @@ export class CrearClientesComponent {
         })
     }
 
-    private regresarListaClientes() {
+    regresarListaClientes() {
         this.router.navigate(['./clientes']);
         Swal.fire(
             'Cliente creado',
