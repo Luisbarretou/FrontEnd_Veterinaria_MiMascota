@@ -16,6 +16,7 @@ export class DetalleClientesComponent {
     id: number;
     cliente: Cliente;
     //Este es un comentario de prueba
+    //para la rama karen
 
     items: MenuItem[];
     home: MenuItem;
