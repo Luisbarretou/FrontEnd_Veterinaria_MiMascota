@@ -64,7 +64,7 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
 
 @NgModule({
     declarations: [
-        AppComponent/*, NotfoundComponent*/,
+        AppComponent,
         ListarClientesComponent,
         DashboardComponent,
         CrearClientesComponent,

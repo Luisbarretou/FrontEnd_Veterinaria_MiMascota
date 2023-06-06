@@ -14,7 +14,7 @@ export class EspecialistaService {
 
     obtenerListaEspecialistas(): Observable<Especialista[]> {
         return this.httpClient.get<Especialista[]>(`${this.urlBackend}`);
-    }
+    } 
 
     obtenerListaEspecialistasHabilitados(): Observable<Especialista[]> {
         return this.httpClient.get<Especialista[]>(`${this.urlBackend}/habilitados`);

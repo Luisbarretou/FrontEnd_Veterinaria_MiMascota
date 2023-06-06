@@ -8,8 +8,7 @@ import { MenuItem } from 'primeng/api';
 @Component({
     selector: 'app-actualizar-especialistas',
     templateUrl: './actualizar-especialistas.component.html',
-    styles: [
-    ]
+    styles: []
 })
 export class ActualizarEspecialistasComponent {
 
