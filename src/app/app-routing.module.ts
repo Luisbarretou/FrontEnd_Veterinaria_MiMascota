@@ -35,6 +35,7 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
 EFEFEFE
 EFEFE */
 //sigo trabajando...
+//Sigo trabajando 2...
 
 /*nuevo trabajo de prueba */
 
