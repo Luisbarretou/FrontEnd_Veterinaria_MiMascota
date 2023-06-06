@@ -27,15 +27,6 @@ import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveed
 import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
 
-
-//Nuevo modulo
-
-//Nuevo modulo 2
-//Modulo 4
-/**MODULO 3 */
-/**MODULO 5 */
-//Modulo X
-
 const routes: Routes = [
 
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -69,6 +60,12 @@ const routes: Routes = [
     { path: 'crear-servicios', component: CrearServiciosComponent },
     { path: 'actualizar-servicios/:id', component: ActualizarServiciosComponent },
     { path: 'detalle-servicios/:id', component: DetalleServiciosComponent },
+
+    { path: 'proveedores', component: ListarProveedoresComponent },
+    { path: '', redirectTo: '/proveedores', pathMatch: 'full' },
+    { path: 'crear-proveedores', component: CrearProveedoresComponent },
+    { path: 'actualizar-proveedores/:id', component: ActualizarProveedoresComponent },
+    { path: 'detalle-proveedores/:id', component: DetalleProveedoresComponent },
 ];
 
 @NgModule({
