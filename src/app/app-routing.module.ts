@@ -14,10 +14,10 @@ import { DetalleMascotasComponent } from './mascotas/detalle-mascotas/detalle-ma
 import { ListarHistoriasComponent } from './historias/listar-historias/listar-historias.component';
 import { ActualizarHistoriasComponent } from './historias/actualizar-historias/actualizar-historias.component';
 import { DetalleHistoriasComponent } from './historias/detalle-historias/detalle-historias.component';
-import { CrearServiciosComponent } from './servicios/crear-servicios/crear-servicios.component';
-import { ListarServiciosComponent } from './servicios/listar-servicios/listar-servicios.component';
-import { ActualizarServiciosComponent } from './servicios/actualizar-servicios/actualizar-servicios.component';
-import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle-servicios.component';
+import { ListarEspecialistasComponent } from './especialistas/listar-especialistas/listar-especialistas.component';
+import { CrearEspecialistasComponent } from './especialistas/crear-especialistas/crear-especialistas.component';
+import { ActualizarEspecialistasComponent } from './especialistas/actualizar-especialistas/actualizar-especialistas.component';
+import { DetalleEspecialistasComponent } from './especialistas/detalle-especialistas/detalle-especialistas.component';
 
 const routes: Routes = [
 
@@ -41,33 +41,14 @@ const routes: Routes = [
     { path: 'actualizar-historias/:id', component: ActualizarHistoriasComponent },
     { path: 'detalle-historias/:id', component: DetalleHistoriasComponent },
 
-    { path: 'servicios', component: ListarServiciosComponent },
-    { path: '', redirectTo: '/servicios', pathMatch: 'full' },
-    { path: 'crear-servicios', component: CrearServiciosComponent },
-    { path: 'actualizar-servicios/:id', component: ActualizarServiciosComponent },
-    { path: 'detalle-servicios/:id', component: DetalleServiciosComponent },
+    { path: 'especialistas', component: ListarEspecialistasComponent },
+    { path: '', redirectTo: '/especialistas', pathMatch: 'full' },
+    { path: 'crear-especialistas', component: CrearEspecialistasComponent },
+    { path: 'actualizar-especialistas/:id', component: ActualizarEspecialistasComponent },
+    { path: 'detalle-especialistas/:id', component: DetalleEspecialistasComponent },
 ];
 
 @NgModule({
-    // imports: [
-    //     RouterModule.forRoot([
-    //         {
-    //             path: '', component: AppLayoutComponent,
-    //             children: [
-    //                 { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
-    //                 { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
-    //                 { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
-    //                 { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
-    //                 { path: 'blocks', loadChildren: () => import('./demo/components/primeblocks/primeblocks.module').then(m => m.PrimeBlocksModule) },
-    //                 { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) }
-    //             ]
-    //         },
-    //         { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
-    //         { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
-    //         { path: 'notfound', component: NotfoundComponent },
-    //         { path: '**', redirectTo: '/notfound' },
-    //     ], { scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled', onSameUrlNavigation: 'reload' })
-    // ],
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })

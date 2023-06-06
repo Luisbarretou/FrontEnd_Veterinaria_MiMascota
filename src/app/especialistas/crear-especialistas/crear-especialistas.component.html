@@ -1,0 +1,79 @@
+<div class="card">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+    <h1 style="font-family: 'Poppins', sans-serif;">Registrar Especialista</h1>
+    <div class="col-12 md:col-12">
+        <form (ngSubmit)="registroEspecialista()" #especialistaForm="ngForm" class="form-sample">
+            <div class="card p-fluid">
+                <h5>Datos personales</h5>
+                <div class="field grid">
+                    <label style="color: #f00;" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Campos requeridos
+                        (*)</label> 
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Nombres (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-user"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText
+                                [(ngModel)]="especialista.especialistaNombres" name="especialistaNombres"
+                                #especialistaNombres="ngModel" required />
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">DNI (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-id-card"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText
+                                [(ngModel)]="especialista.especialistaDNI" name="especialistaDNI" minlength="8"
+                                #especialistaDNI="ngModel" required />
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Area / Especialidad (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-briefcase"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText
+                                [(ngModel)]="especialista.especialistaArea" name="especialistaArea"
+                                #especialistaArea="ngModel" required />
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Celular / Telefono (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-phone"></i>
+                            <input type="number" class="p-inputtext-lg" pInputText
+                                [(ngModel)]="especialista.especialistaTelefono" name="especialistaTelefono"
+                                [min]="100000" [max]="999999999" #especialistaTelefono="ngModel" required>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Estado</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-lock"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText placeholder="Habilitado"
+                                [(ngModel)]="especialista.especialistaEstado" name="especialistaEstado"
+                                #especialistaEstado="ngModel" disabled="" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="field grid">
+                <div class="col-12 md:col-12">
+                    <p-button icon="pi pi-check-circle" label="Guardar" type="submit"
+                        [disabled]="!especialistaForm.form.valid" class="mr-5"
+                        styleClass="p-button-raised p-button-text p-button-success"></p-button>
+                    <p-button icon="pi pi-eraser" type="reset" label="Limpiar"
+                        styleClass="p-button-outlined p-button-danger"></p-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

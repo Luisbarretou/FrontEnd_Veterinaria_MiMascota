@@ -1,67 +1,67 @@
-import { Component } from "@angular/core";
-import { Servicio } from "../servicio";
-import { Router } from "@angular/router";
-import { ServicioService } from "../servicio.service";
-import { MenuItem } from "primeng/api";
-import Swal from "sweetalert2";
-import * as FileSaver from "file-saver";
-
+import { Component } from '@angular/core';
+import { EspecialistaService } from '../especialista.service';
+import { Router } from '@angular/router';
+import { Especialista } from '../especialista';
+import Swal from 'sweetalert2';
+import * as FileSaver from 'file-saver';
+import { MenuItem } from 'primeng/api';
 
 @Component({
-    selector: 'app-listar-servicios',
-    templateUrl: './listar-servicios.component.html',
+    selector: 'app-listar-especialistas',
+    templateUrl: './listar-especialistas.component.html',
     styles: []
 })
+export class ListarEspecialistasComponent {
 
-export class ListarServiciosComponent {
-    servicios: Servicio[];
+    especialistas: Especialista[];
+    estado: string[];
+
     pageActual: number = 1;
-
-    seleccionServicio: Servicio[];
+    seleccionEspecialista: Especialista[];
     cols: any[];
     exportColumns: any[];
-    
+
     items: MenuItem[];
     home: MenuItem;
 
     fechaActual = new Date();
 
-    constructor(private servicioService: ServicioService, private router: Router) { }
+    constructor(private especialistaService: EspecialistaService, private router: Router) { }
 
     ngOnInit(): void {
-        this.listarServicios();
-        servicio => this.servicios = servicio;
+        this.listarEspecialistas();
 
         this.cols = [
-            { field: 'servicioId', header: 'Codigo', customExportHeader: 'Servicio' },
-            { field: 'servicioCategoria', header: 'Categoria' },
-            { field: 'servicioTipo', header: 'Tipo' },
-            { field: 'servicioPrecio', header: 'Precio' },
-            { field: 'servicioEstado', header: 'Estado' },
-            { field: 'servicioFechaCreacion', header: 'Fecha de Creacion' }
+            { field: 'especialistaId', header: 'Codigo', customExportHeader: 'especialista' },
+            { field: 'especialistaDNI', header: 'DNI' },
+            { field: 'especialistaNombres', header: 'Nombres' },
+            { field: 'especialistaTelefono', header: 'Telefono' },
+            { field: 'especialistaArea', header: 'Area' },
+            { field: 'especialistaFechaCreacion', header: 'Fcha Creacion' },
+            { field: 'especialistaEstado', header: 'Estado' },
         ];
 
         this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
 
-        this.items = [{ label: 'Servicio' }, { label: 'Lista' }];
+        this.items = [{ label: 'Especialista' }, { label: 'Lista' }];
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
 
-    private listarServicios() {
-        this.servicioService.obtenerListaServicios().subscribe(dato => {
-            this.servicios = dato;
+    private listarEspecialistas() {
+        this.especialistaService.obtenerListaEspecialistas().subscribe(dato => {
+            this.especialistas = dato;
         });
     }
 
-    actualizaServicio(id: number) {
-        this.router.navigate([`actualizar-servicios`, id]);
+    actualizaEspecialista(id: number) {
+        this.router.navigate([`actualizar-especialistas`, id]);
     }
 
-    detalleServicio(id: number) {
-        this.router.navigate([`detalle-servicios`, id]);
+    detalleEspecialista(id: number) {
+        this.router.navigate([`detalle-especialistas`, id]);
     }
 
-    eliminarServicio(servicio: Servicio) {
+    inhabilitaEspecialista(id: number) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-success',
@@ -71,19 +71,19 @@ export class ListarServiciosComponent {
         })
         swalWithBootstrapButtons.fire({
             title: 'Está seguro?',
-            text: `¿Seguro que desea eliminar el servicio: "${servicio.servicioCategoria}" ?`,
+            text: `¿Seguro que desea inhabilitar el Especialista: "${id}" ?`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'Si, eliminar!',
+            confirmButtonText: 'Si, inhabilitar!',
             cancelButtonText: 'No, cancelar!',
             reverseButtons: true
         }).then((result) => {
             if (result.value) {
-                this.servicioService.eliminarServicio(servicio.servicioId).subscribe(dato => {
-                    this.listarServicios();
+                this.especialistaService.inhabilitarEspecialista(id).subscribe(dato => {
+                    this.listarEspecialistas();
                     swalWithBootstrapButtons.fire(
-                        'Servicio Eliminado!',
-                        `Servicio: "${servicio.servicioCategoria}" eliminado con éxito.`,
+                        'Especialista Inhabilitado!',
+                        `Especialista: "${id}" inhabilitao con éxito.`,
                         'success'
                     )
                 })
@@ -105,18 +105,18 @@ export class ListarServiciosComponent {
             import('jspdf-autotable').then((x) => {
                 let actual = this.fechaActual.toLocaleString();
                 const doc = new jsPDF.default('p', 'px', 'a4');
-                (doc as any).autoTable(this.exportColumns, this.servicios);
-                doc.save(`servicios_${actual}.pdf`);
+                (doc as any).autoTable(this.exportColumns, this.especialistas);
+                doc.save(`especialistas${actual}.pdf`);
             });
         });
     }
-    
+
     exportExcel() {
         import('xlsx').then((xlsx) => {
-            const worksheet = xlsx.utils.json_to_sheet(this.servicios);
+            const worksheet = xlsx.utils.json_to_sheet(this.especialistas);
             const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
             const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-            this.saveAsExcelFile(excelBuffer, 'servicios');
+            this.saveAsExcelFile(excelBuffer, 'especialistas');
         });
     }
 
@@ -143,4 +143,5 @@ export class ListarServiciosComponent {
             }
         }
     }
+
 }
