@@ -26,6 +26,7 @@ import { ListarProveedoresComponent } from './proveedores/listar-proveedores/lis
 import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveedores/actualizar-proveedores.component';
 import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
+//Este es un comentario 
 
 const routes: Routes = [
 
