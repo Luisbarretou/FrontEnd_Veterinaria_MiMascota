@@ -35,6 +35,8 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
 EFEFEFE
 EFEFE */
 
+/*nuevo trabajo de prueba */
+
 const routes: Routes = [
 
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
