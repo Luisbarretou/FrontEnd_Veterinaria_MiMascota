@@ -34,6 +34,7 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
 //Modulo 4
 /**MODULO 3 */
 /**MODULO 5 */
+//Modulo X
 
 const routes: Routes = [
 
