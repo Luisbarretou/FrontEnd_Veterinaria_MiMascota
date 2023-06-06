@@ -28,7 +28,11 @@ import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
 //Este es un comentario
 //Este es un cambio de Luis
-//Este es otro comnetario
+
+
+/* NUEVO MODULO
+EFEFEFE
+EFEFE */
 
 const routes: Routes = [
 
