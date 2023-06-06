@@ -29,6 +29,7 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
 /*Nuevo Modulo */
 
 //Nuevo modulo
+/**MODULO 2 */
 
 const routes: Routes = [
 
