@@ -22,6 +22,7 @@ import { CrearServiciosComponent } from './servicios/crear-servicios/crear-servi
 import { ListarServiciosComponent } from './servicios/listar-servicios/listar-servicios.component';
 import { ActualizarServiciosComponent } from './servicios/actualizar-servicios/actualizar-servicios.component';
 import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle-servicios.component';
+import { ListarProveedoresComponent } from './proveedores/listar-proveedores/listar-proveedores.component';
 
 const routes: Routes = [
 
