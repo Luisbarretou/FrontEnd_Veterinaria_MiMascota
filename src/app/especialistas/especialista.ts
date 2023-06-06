@@ -6,4 +6,5 @@ export class Especialista {
     especialistaArea: string;
     especialistaFechaCreacion: string;
     especialistaEstado: string;
+    
 }
