@@ -31,6 +31,8 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
 //Este es un cambio de Luis
 //Este es otro comnetario
 
+/*nuevo trabajo de prueba */
+
 const routes: Routes = [
 
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
