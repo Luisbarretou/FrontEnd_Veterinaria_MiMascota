@@ -18,6 +18,10 @@ import { ListarEspecialistasComponent } from './especialistas/listar-especialist
 import { CrearEspecialistasComponent } from './especialistas/crear-especialistas/crear-especialistas.component';
 import { ActualizarEspecialistasComponent } from './especialistas/actualizar-especialistas/actualizar-especialistas.component';
 import { DetalleEspecialistasComponent } from './especialistas/detalle-especialistas/detalle-especialistas.component';
+import { CrearServiciosComponent } from './servicios/crear-servicios/crear-servicios.component';
+import { ListarServiciosComponent } from './servicios/listar-servicios/listar-servicios.component';
+import { ActualizarServiciosComponent } from './servicios/actualizar-servicios/actualizar-servicios.component';
+import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle-servicios.component';
 
 const routes: Routes = [
 
@@ -46,6 +50,12 @@ const routes: Routes = [
     { path: 'crear-especialistas', component: CrearEspecialistasComponent },
     { path: 'actualizar-especialistas/:id', component: ActualizarEspecialistasComponent },
     { path: 'detalle-especialistas/:id', component: DetalleEspecialistasComponent },
+
+    { path: 'servicios', component: ListarServiciosComponent },
+    { path: '', redirectTo: '/servicios', pathMatch: 'full' },
+    { path: 'crear-servicios', component: CrearServiciosComponent },
+    { path: 'actualizar-servicios/:id', component: ActualizarServiciosComponent },
+    { path: 'detalle-servicios/:id', component: DetalleServiciosComponent },
 ];
 
 @NgModule({

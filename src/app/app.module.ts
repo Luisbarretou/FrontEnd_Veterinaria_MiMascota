@@ -61,6 +61,10 @@ import { ListarProveedoresComponent } from './proveedores/listar-proveedores/lis
 import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
 import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveedores/actualizar-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
+import { CrearServiciosComponent } from './servicios/crear-servicios/crear-servicios.component';
+import { ListarServiciosComponent } from './servicios/listar-servicios/listar-servicios.component';
+import { ActualizarServiciosComponent } from './servicios/actualizar-servicios/actualizar-servicios.component';
+import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle-servicios.component';
 
 @NgModule({
     declarations: [
@@ -84,7 +88,11 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
         ListarProveedoresComponent,
         CrearProveedoresComponent,
         ActualizarProveedoresComponent,
-        DetalleProveedoresComponent
+        DetalleProveedoresComponent,
+        CrearServiciosComponent,
+        ListarServiciosComponent,
+        ActualizarServiciosComponent,
+        DetalleServiciosComponent,
     ],
     imports: [
         AppRoutingModule,
