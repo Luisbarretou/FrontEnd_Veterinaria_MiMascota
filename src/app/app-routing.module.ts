@@ -34,6 +34,7 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
 /* NUEVO MODULO
 EFEFEFE
 EFEFE */
+/*NUEVO MÓDULO */
 
 /*nuevo trabajo de prueba */
 
