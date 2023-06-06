@@ -27,6 +27,7 @@ import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveed
 import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
 //Este es un comentario
+//Este es un cambio de Luis
 //Este es otro comnetario
 
 const routes: Routes = [
