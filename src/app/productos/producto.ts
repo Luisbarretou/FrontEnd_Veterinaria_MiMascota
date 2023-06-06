@@ -1,3 +1,5 @@
+import { Proveedor } from "../proveedores/proveedor";
+
 export class Producto {
     productoId: number;
     productoNombre: string;
@@ -7,5 +9,5 @@ export class Producto {
     productoPrecio: number;
     productoFchaCreacion: string;
     productoEstado: string;
-
+    proveedores: Array<Proveedor> = [];
 }
