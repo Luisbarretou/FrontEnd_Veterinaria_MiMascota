@@ -1,8 +1,8 @@
 <div class="card">
     <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
-    <h1 style="font-family: 'Poppins', sans-serif;">Actualizar Especialista</h1>
+    <h1 style="font-family: 'Poppins', sans-serif;">Registrar Especialista</h1>
     <div class="col-12 md:col-12">
-        <form (ngSubmit)="actualizarEspecialista()" #especialistaForm="ngForm" class="form-sample">
+        <form (ngSubmit)="registroEspecialista()" #especialistaForm="ngForm" class="form-sample">
             <div class="card p-fluid">
                 <h5>Datos personales</h5>
                 <div class="field grid">
@@ -57,19 +57,20 @@
                     <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Estado</label>
                     <div class="col-12 md:col-8">
                         <span class="p-input-icon-left">
-                            <p-dropdown [options]="estado" class="p-inputtext-lg"
+                            <i class="pi pi-lock"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText placeholder="Habilitado"
                                 [(ngModel)]="especialista.especialistaEstado" name="especialistaEstado"
-                                #especialistaEstado="ngModel"></p-dropdown>
+                                #especialistaEstado="ngModel" disabled="" />
                         </span>
                     </div>
                 </div>
             </div>
             <div class="field grid">
                 <div class="col-12 md:col-12">
-                    <p-button icon="pi pi-check-circle" label="Actualizar" type="submit"
+                    <p-button icon="pi pi-check-circle" label="Guardar" type="submit"
                         [disabled]="!especialistaForm.form.valid" class="mr-5"
                         styleClass="p-button-raised p-button-text p-button-success"></p-button>
-                    <p-button icon="pi pi-arrow-left" (click)="regesaListaEspecialistas()" label="Regresar"
+                    <p-button icon="pi pi-eraser" type="reset" label="Limpiar"
                         styleClass="p-button-outlined p-button-danger"></p-button>
                 </div>
             </div>
