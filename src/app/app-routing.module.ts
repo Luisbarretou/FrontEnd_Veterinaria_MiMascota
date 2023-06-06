@@ -29,7 +29,11 @@ import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/d
 //Este es un comentario
 /* ESTE ES UN NUEVO CAMBIO*/
 //Este es un cambio de Luis
-//Este es otro comnetario
+
+
+/* NUEVO MODULO
+EFEFEFE
+EFEFE */
 
 /*nuevo trabajo de prueba */
 
