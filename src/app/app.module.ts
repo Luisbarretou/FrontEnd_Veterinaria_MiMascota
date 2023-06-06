@@ -60,7 +60,7 @@ import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle
 
 @NgModule({
     declarations: [
-        AppComponent,
+        AppComponent/*, NotfoundComponent*/,
         ListarClientesComponent,
         DashboardComponent,
         CrearClientesComponent,
