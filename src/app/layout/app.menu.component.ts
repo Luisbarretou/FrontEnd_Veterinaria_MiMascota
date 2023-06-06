@@ -90,9 +90,14 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-shopping-bag',
                         items: [
                             {
+                                label: 'Registrar',
+                                icon: 'pi pi-fw pi-user-plus',
+                                routerLink: ['/crear-servicios']
+                            },
+                            {
                                 label: 'Listado',
-                                icon: 'pi pi-fw pi-server',
-                                routerLink: ['/']
+                                icon: 'pi pi-fw pi-database',
+                                routerLink: ['/servicios']
                             }
                         ]
                     },
