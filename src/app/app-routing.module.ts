@@ -36,6 +36,8 @@ EFEFEFE
 EFEFE */
 //sigo trabajando...
 
+/*nuevo trabajo de prueba */
+
 const routes: Routes = [
 
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
