@@ -27,6 +27,8 @@ import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveed
 import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
 
+//Nuevo modulo
+
 const routes: Routes = [
 
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
