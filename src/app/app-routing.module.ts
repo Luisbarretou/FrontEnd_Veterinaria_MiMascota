@@ -25,6 +25,7 @@ import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle
 import { ListarProveedoresComponent } from './proveedores/listar-proveedores/listar-proveedores.component';
 import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveedores/actualizar-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
+//Este es un comentario 
 
 const routes: Routes = [
 
