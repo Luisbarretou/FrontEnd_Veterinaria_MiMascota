@@ -24,6 +24,7 @@ import { ActualizarServiciosComponent } from './servicios/actualizar-servicios/a
 import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle-servicios.component';
 import { ListarProveedoresComponent } from './proveedores/listar-proveedores/listar-proveedores.component';
 import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveedores/actualizar-proveedores.component';
+import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
 //Este es un comentario
 //Este es otro comnetario
