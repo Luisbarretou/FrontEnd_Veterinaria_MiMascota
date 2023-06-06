@@ -23,6 +23,7 @@ import { ListarServiciosComponent } from './servicios/listar-servicios/listar-se
 import { ActualizarServiciosComponent } from './servicios/actualizar-servicios/actualizar-servicios.component';
 import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle-servicios.component';
 import { ListarProveedoresComponent } from './proveedores/listar-proveedores/listar-proveedores.component';
+import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveedores/actualizar-proveedores.component';
 
 const routes: Routes = [
 
