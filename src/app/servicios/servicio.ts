@@ -4,5 +4,5 @@ export class Servicio {
     servicioTipo: string;
     servicioPrecio: Float32Array;
     servicioEstado: string;
-    servicioFchaCreacion: string
+    servicioFechaCreacion: string;
 }

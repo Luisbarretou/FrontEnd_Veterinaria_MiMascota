@@ -77,12 +77,13 @@ export class ActualizarServiciosComponent {
             confirmButtonText: 'Si, quiero cancelar la actualización!'
         }).then((result) => {
             if (result.isConfirmed) {
-            Swal.fire(
-                'Operación cancelada!',
-                'Has sido redirigido a la lista de servicios.',
-                'error'
-            )
-            this.router.navigate(['./servicios']);}
+                Swal.fire(
+                    'Operación cancelada!',
+                    'Has sido redirigido a la lista de servicios.',
+                    'error'
+                )
+                this.router.navigate(['./servicios']);
+            }
         })
     }
 }

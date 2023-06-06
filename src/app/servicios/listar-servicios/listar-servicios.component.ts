@@ -10,8 +10,7 @@ import * as FileSaver from "file-saver";
 @Component({
     selector: 'app-listar-servicios',
     templateUrl: './listar-servicios.component.html',
-    styles: [
-    ]
+    styles: []
 })
 
 export class ListarServiciosComponent {
@@ -39,7 +38,7 @@ export class ListarServiciosComponent {
             { field: 'servicioTipo', header: 'Tipo' },
             { field: 'servicioPrecio', header: 'Precio' },
             { field: 'servicioEstado', header: 'Estado' },
-            { field: 'servicioFchaCreacion', header: 'Fecha de Creacion' }
+            { field: 'servicioFechaCreacion', header: 'Fecha de Creacion' }
         ];
 
         this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
@@ -105,7 +104,7 @@ export class ListarServiciosComponent {
         import('jspdf').then((jsPDF) => {
             import('jspdf-autotable').then((x) => {
                 let actual = this.fechaActual.toLocaleString();
-                const doc = new jsPDF.default('l', 'px', 'a4');
+                const doc = new jsPDF.default('p', 'px', 'a4');
                 (doc as any).autoTable(this.exportColumns, this.servicios);
                 doc.save(`servicios_${actual}.pdf`);
             });
