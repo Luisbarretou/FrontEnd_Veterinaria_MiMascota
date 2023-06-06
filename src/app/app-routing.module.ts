@@ -42,6 +42,7 @@ EFEFE */
 /*nuevo trabajo de prueba */
 
 //Nuevo modulo
+/**MODULO 2 */
 
 const routes: Routes = [
 
