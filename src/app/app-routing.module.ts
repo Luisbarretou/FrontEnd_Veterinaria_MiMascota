@@ -43,7 +43,6 @@ EFEFE */
 
 //Nuevo modulo
 /**MODULO 2 */
-/**MODULO 3  */
 
 const routes: Routes = [
 
