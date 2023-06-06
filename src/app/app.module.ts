@@ -66,6 +66,7 @@ import { ListarServiciosComponent } from './servicios/listar-servicios/listar-se
 import { ActualizarServiciosComponent } from './servicios/actualizar-servicios/actualizar-servicios.component';
 import { DetalleServiciosComponent } from './servicios/detalle-servicios/detalle-servicios.component';
 import { ListarProductosComponent } from './productos/listar-productos/listar-productos.component';
+import { CrearProductosComponent } from './productos/crear-productos/crear-productos.component';
 
 @NgModule({
     declarations: [
@@ -95,6 +96,7 @@ import { ListarProductosComponent } from './productos/listar-productos/listar-pr
         ActualizarServiciosComponent,
         DetalleServiciosComponent,
         ListarProductosComponent,
+        CrearProductosComponent,
     ],
     imports: [
         AppRoutingModule,
