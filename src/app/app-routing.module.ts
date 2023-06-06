@@ -26,6 +26,20 @@ import { ListarProveedoresComponent } from './proveedores/listar-proveedores/lis
 import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveedores/actualizar-proveedores.component';
 import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
+/*Nuevo Modulo */
+//Este es un comentario
+/* ESTE ES UN NUEVO CAMBIO*/
+//Este es un cambio de Luis
+
+
+/* NUEVO MODULO
+EFEFEFE
+EFEFE */
+//sigo trabajando...
+//Sigo trabajando 2...
+/*NUEVO MÓDULO */
+
+/*nuevo trabajo de prueba */
 
 //Nuevo modulo
 
