@@ -1,1 +1,73 @@
-<p>crear-productos works!</p>
+<div class="card">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+    <h1 style="font-family: 'Poppins', sans-serif;">Registrar Producto</h1>
+        <div class="col-12 md:col-12">
+            <form (ngSubmit)="registroProducto()" #productoForm="ngForm" class="form-sample">
+            <div class="card p-fluid">
+                <h5>Información</h5>
+                <div class="field grid">
+                    <label style="color: #f00;" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Campos requeridos (*)</label>
+                </div>
+                <!-- <div class="field grid">
+                    <label for="cliente" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Cliente (*)</label>
+                    <div class="col-12 md:col-8">
+                        <p-dropdown class="p-inputtext-lg" [options]="clientes" [(ngModel)]="producto.cliente" optionLabel="clienteNombre" [filter]="true" id="cliente" name="cliente" #cliente="ngModel" [required]="true" placeholder="Sin seleccionar"></p-dropdown>
+                    </div>
+                </div> -->
+                <div class="field grid">
+                    <label for="nombre" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Nombre (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-user"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="producto.productoNombre" name="productoNombre" #productoNombre="ngModel" required/>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Categoria (*)</label>
+                    <div class="col-12 md:col-8">
+                        <p-dropdown [options]="categorias" class="p-inputtext-lg" [(ngModel)]="producto.productoCategoria" optionLabel="name" optionValue="name" [filter]="true" name="productoCategoria" #productoCategoria="ngModel"  [required]="true" placeholder="Sin seleccionar"></p-dropdown>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Marca (*)</label>
+                    <div class="col-12 md:col-8">
+                        <p-dropdown [options]="marcas" class="p-inputtext-lg" [(ngModel)]="producto.productoMarca" optionLabel="name" optionValue="name" [filter]="true" name="productoMarca" #productoMarca="ngModel"  [required]="true" placeholder="Sin seleccionar"></p-dropdown>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Precio (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <p-inputNumber [(ngModel)]="producto.productoPrecio" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [minFractionDigits]="2" [min]="0" [max]="9999"> </p-inputNumber>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Descripción</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-align-left"></i>
+                            <textarea style="font-size: 18px;" pInputText [(ngModel)]="producto.productoDescripcion" name="productoDescripcion" #productoDescripcion="ngModel" rows="5" cols="30"  pInputTextarea [autoResize]="true"></textarea>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Estado</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-lock"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText placeholder="Habilitado" [(ngModel)]="producto.productoEstado" name="productoEstado" #productoEstado="ngModel" disabled=""/>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="field grid">
+                <div class="col-12 md:col-12">
+                    <p-button icon="pi pi-check-circle" label="Guardar" type="submit" [disabled]="!productoForm.form.valid" class="mr-5" styleClass="p-button-raised p-button-text p-button-success"></p-button>
+                    <p-button icon="pi pi-eraser" type="reset" label="Limpiar" styleClass="p-button-outlined p-button-danger"></p-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
