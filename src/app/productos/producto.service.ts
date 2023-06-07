@@ -16,5 +16,24 @@ export class ProductoService {
         return this.httpClient.get<Producto[]>(`${this.urlBackend}`);
     }
 
-    
+    obtenerListaProductosHabilitados(): Observable<Producto[]> {
+        return this.httpClient.get<Producto[]>(`${this.urlBackend}/habilitados`);
+    }
+
+    obtenerProducto(id: number): Observable<Producto> {
+        return this.httpClient.get<Producto>(`${this.urlBackend}/${id}`);
+    }
+
+    crearProducto(producto: Producto): Observable<object> {
+        return this.httpClient.post(`${this.urlBackend}`, producto);
+    }
+
+    actualizarProducto(id: number, producto: Producto): Observable<object> {
+        return this.httpClient.put(`${this.urlBackend}/${id}`, producto);
+    }
+
+    inhabilitarProducto(id: number): Observable<object> {
+        return this.httpClient.put(`${this.urlBackend}/${id}/inhabilitar`, {});
+    }
+
 }
