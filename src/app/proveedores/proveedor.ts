@@ -5,6 +5,6 @@ export class Proveedor {
     proveedorTelefono: string;
     proveedorDireccion: string;
     proveedorCorreo: string;
-    proveedorEstado: string;
     proveedorFchaCreacion: string;
+    proveedorEstado: string;
 }
