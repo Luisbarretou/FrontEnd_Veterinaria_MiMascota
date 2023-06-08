@@ -82,6 +82,9 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
+                
+            },
+            {
                 label: 'MANTENEDORES',
                 icon: 'pi pi-fw pi-briefcase',
                 items: [
@@ -118,6 +121,7 @@ export class AppMenuComponent implements OnInit {
                         ]
                     },
                     {
+
                         label: 'Productos',
                         icon: 'pi pi-fw pi-shopping-bag',
                         items: [
@@ -140,15 +144,16 @@ export class AppMenuComponent implements OnInit {
                             {
                                 label: 'Registrar',
                                 icon: 'pi pi-fw pi-user-plus',
-                                routerLink: ['/']
+                                routerLink: ['/crear-proveedores']
                             },
                             {
                                 label: 'Listado',
                                 icon: 'pi pi-fw pi-list',
-                                routerLink: ['/']
+                                routerLink: ['/proveedores']
                             }
                         ]
                     },
+
                 ]
             }
         ];

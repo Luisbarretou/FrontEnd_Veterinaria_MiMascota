@@ -101,6 +101,11 @@ import { DetalleProductosComponent } from './productos/detalle-productos/detalle
         CrearProductosComponent,
         ActualizarProductosComponent,
         DetalleProductosComponent,
+        ActualizarProveedoresComponent,
+        CrearProveedoresComponent,
+        ListarProveedoresComponent,
+        DetalleProveedoresComponent,
+        
     ],
     imports: [
         AppRoutingModule,
