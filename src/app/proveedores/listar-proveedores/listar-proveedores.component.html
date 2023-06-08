@@ -16,8 +16,6 @@
                 <th pSortableColumn="proveedorRUC">RUC<p-sortIcon field="proveedorRUC"></p-sortIcon></th>
                 <th pSortableColumn="proveedorRazonSocial">RAZON SOCIAL<p-sortIcon field="proveedorRazonSocial"></p-sortIcon></th>
                 <th pSortableColumn="proveedorTelefono">TELEFONO<p-sortIcon field="proveedorTelefono"></p-sortIcon></th>
-                <th pSortableColumn="proveedorTelefono">DIRECCION<p-sortIcon field="proveedorDireccion"></p-sortIcon></th>
-                <th pSortableColumn="proveedorTelefono">CORREO<p-sortIcon field="proveedorCorreo"></p-sortIcon></th>
                 <th>ESTADO</th>
                 <th>ACCIONES</th>
             </tr>
@@ -34,14 +32,8 @@
                 <th>
                     <p-columnFilter type="text" field="proveedorTelefono"></p-columnFilter>
                 </th>
-                <th>
-                    <p-columnFilter type="text" field="proveedorCorreo"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="proveedorDireccion"></p-columnFilter>
-                </th>
-
-
+                <th></th>
+                <th></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns" let-proveedor>
@@ -50,8 +42,6 @@
                 <td>{{proveedor.proveedorRUC}}</td>
                 <td>{{proveedor.proveedorRazonSocial}}</td>
                 <td>{{proveedor.proveedorTelefono}}</td>
-                <td>{{proveedor.proveedorCorreo}}</td>
-                <td>{{proveedor.proveedorDireccion}}</td>
                 <td>
                     <p-tag [value]="proveedor.proveedorEstado"
                     [severity]="obtenerEstado(proveedor.proveedorEstado)"></p-tag>
@@ -63,7 +53,7 @@
                             (click)="detalleProveedor(proveedor.proveedorId)"></p-button>
                         <p-button icon="pi pi-pencil"
                             styleClass="p-button-rounded p-button-warning p-button-text p-button-raised"
-                            (click)="actualizarProveedor(proveedor.proveedorId)"></p-button>
+                            (click)="actualizaProveedor(proveedor.proveedorId)"></p-button>
                         <p-button icon="pi pi-ban"
                             styleClass="p-button-rounded p-button-secondary p-button-text p-button-raised"
                             (click)="inhabilitaProveedor(proveedor.proveedorId)"></p-button>
