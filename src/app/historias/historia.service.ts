@@ -16,6 +16,10 @@ export class HistoriaService {
         return this.httpClient.get<Historia[]>(`${this.urlBackend}`);
     }
 
+    obtenerListaHistoriasHabilitadas(): Observable<Historia[]> {
+        return this.httpClient.get<Historia[]>(`${this.urlBackend}/habilitadas`);
+    }
+
     obtenerHistoria(id: number): Observable<Historia> {
         return this.httpClient.get<Historia>(`${this.urlBackend}/${id}`);
     }

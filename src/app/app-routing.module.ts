@@ -26,6 +26,10 @@ import { ListarProveedoresComponent } from './proveedores/listar-proveedores/lis
 import { ActualizarProveedoresComponent } from './proveedores/actualizar-proveedores/actualizar-proveedores.component';
 import { CrearProveedoresComponent } from './proveedores/crear-proveedores/crear-proveedores.component';
 import { DetalleProveedoresComponent } from './proveedores/detalle-proveedores/detalle-proveedores.component';
+import { ListarProductosComponent } from './productos/listar-productos/listar-productos.component';
+import { CrearProductosComponent } from './productos/crear-productos/crear-productos.component';
+import { ActualizarProductosComponent } from './productos/actualizar-productos/actualizar-productos.component';
+import { DetalleProductosComponent } from './productos/detalle-productos/detalle-productos.component';
 
 const routes: Routes = [
 
@@ -66,6 +70,12 @@ const routes: Routes = [
     { path: 'crear-proveedores', component: CrearProveedoresComponent },
     { path: 'actualizar-proveedores/:id', component: ActualizarProveedoresComponent },
     { path: 'detalle-proveedores/:id', component: DetalleProveedoresComponent },
+
+    { path: 'productos', component: ListarProductosComponent },
+    { path: '', redirectTo: '/productos', pathMatch: 'full' },
+    { path: 'crear-productos', component: CrearProductosComponent },
+    { path: 'actualizar-productos/:id', component: ActualizarProductosComponent },
+    { path: 'detalle-productos/:id', component: DetalleProductosComponent },
 ];
 
 @NgModule({

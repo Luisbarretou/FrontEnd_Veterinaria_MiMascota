@@ -91,7 +91,7 @@ export class AppMenuComponent implements OnInit {
                         items: [
                             {
                                 label: 'Registrar',
-                                icon: 'pi pi-fw pi-user-plus',
+                                icon: 'pi pi-fw pi-plus',
                                 routerLink: ['/crear-servicios']
                             },
                             {
@@ -114,6 +114,38 @@ export class AppMenuComponent implements OnInit {
                                 label: 'Listado',
                                 icon: 'pi pi-fw pi-list',
                                 routerLink: ['/especialistas']
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Productos',
+                        icon: 'pi pi-fw pi-shopping-bag',
+                        items: [
+                            {
+                                label: 'Registrar',
+                                icon: 'pi pi-fw pi-plus',
+                                routerLink: ['/crear-productos']
+                            },
+                            {
+                                label: 'Listado',
+                                icon: 'pi pi-fw pi-database',
+                                routerLink: ['/productos']
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Proveedores',
+                        icon: 'pi pi-fw pi-users',
+                        items: [
+                            {
+                                label: 'Registrar',
+                                icon: 'pi pi-fw pi-user-plus',
+                                routerLink: ['/']
+                            },
+                            {
+                                label: 'Listado',
+                                icon: 'pi pi-fw pi-list',
+                                routerLink: ['/']
                             }
                         ]
                     },
