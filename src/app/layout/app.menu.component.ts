@@ -121,7 +121,7 @@ export class AppMenuComponent implements OnInit {
                         ]
                     },
                     {
-<<<<<<< Updated upstream
+
                         label: 'Productos',
                         icon: 'pi pi-fw pi-shopping-bag',
                         items: [
@@ -153,25 +153,7 @@ export class AppMenuComponent implements OnInit {
                             }
                         ]
                     },
-=======
-                        label: 'Proveedor',
-                        icon: 'pi pi-fw pi-calendar-plus',
-                        items: [
-                            {
-                                label: 'Registrar',
-                                 icon: 'pi pi-fw pi-plus-circle',
-                                routerLink: ['/crear-proveedores']
-                                },
-                            {
-                                label: 'Listado',
-                                 icon: 'pi pi-fw pi-database',
-                                routerLink: ['/proveedores']
-                                    }
-                            ]
-                    },
-                        
-                     
->>>>>>> Stashed changes
+
                 ]
             }
         ];
