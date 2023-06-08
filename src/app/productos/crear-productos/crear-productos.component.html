@@ -8,12 +8,12 @@
                 <div class="field grid">
                     <label style="color: #f00;" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Campos requeridos (*)</label>
                 </div>
-                <!-- <div class="field grid">
-                    <label for="cliente" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Cliente (*)</label>
+                <div class="field grid">
+                    <label for="proveedores" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Proveedores (*)</label>
                     <div class="col-12 md:col-8">
-                        <p-dropdown class="p-inputtext-lg" [options]="clientes" [(ngModel)]="producto.cliente" optionLabel="clienteNombre" [filter]="true" id="cliente" name="cliente" #cliente="ngModel" [required]="true" placeholder="Sin seleccionar"></p-dropdown>
+                        <p-multiSelect class="p-inputtext-lg" [options]="proveedores" [(ngModel)]="producto.proveedores" defaultLabel="Selecciona los proveedores" optionLabel="proveedorRazonSocial" display="chip" required></p-multiSelect>
                     </div>
-                </div> -->
+                </div>
                 <div class="field grid">
                     <label for="nombre" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Nombre (*)</label>
                     <div class="col-12 md:col-8">
@@ -39,7 +39,8 @@
                     <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Precio (*)</label>
                     <div class="col-12 md:col-8">
                         <span class="p-input-icon-left">
-                            <p-inputNumber [(ngModel)]="producto.productoPrecio" inputId="currency-us" mode="currency" currency="USD" locale="en-US" [minFractionDigits]="2" [min]="0" [max]="9999"> </p-inputNumber>
+                            <i class="pi pi-money-bill"></i>
+                            <input type="number" class="p-inputtext-lg" pInputText [(ngModel)]="producto.productoPrecio" name="productoPrecio" #productoPrecio="ngModel" [required]="true" [min]="0" [max]="99999"/>
                         </span>
                     </div>
                 </div>
@@ -64,7 +65,7 @@
             </div>
             <div class="field grid">
                 <div class="col-12 md:col-12">
-                    <p-button icon="pi pi-check-circle" label="Guardar" type="submit" [disabled]="!productoForm.form.valid" class="mr-5" styleClass="p-button-raised p-button-text p-button-success"></p-button>
+                    <p-button icon="pi pi-save" label="Guardar" type="submit" [disabled]="!productoForm.form.valid" class="mr-5" styleClass="p-button-raised p-button-text p-button-success"></p-button>
                     <p-button icon="pi pi-eraser" type="reset" label="Limpiar" styleClass="p-button-outlined p-button-danger"></p-button>
                 </div>
             </div>

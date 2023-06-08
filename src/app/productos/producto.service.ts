@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Producto } from './producto';
+import { Proveedor } from '../proveedores/proveedor';
 
 @Injectable({
     providedIn: 'root'
@@ -35,5 +36,14 @@ export class ProductoService {
     inhabilitarProducto(id: number): Observable<object> {
         return this.httpClient.put(`${this.urlBackend}/${id}/inhabilitar`, {});
     }
+
+
+    //PROVISIONAL
+    private urlProveedores = "http://localhost:7071/api/proveedores";
+
+    obtenerListaProveedoresHabilitados(): Observable<Proveedor[]> {
+        return this.httpClient.get<Proveedor[]>(`${this.urlProveedores}/habilitados`);
+    }
+    //
 
 }

@@ -2,7 +2,7 @@
     <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
     <h1 style="font-family: 'Poppins', sans-serif;">Actualizar Proveedor</h1>
         <div class="col-12 md:col-12">
-            <form (ngSubmit)="actualizarProveedores()" #proveedorForm="ngForm" class="form-sample">
+            <form (ngSubmit)="actualizaProveedor()" #proveedorForm="ngForm" class="form-sample">
             <div class="card p-fluid">
                 <h5>Datos personales</h5>
                 <div class="field grid">
@@ -13,7 +13,7 @@
                     <div class="col-12 md:col-8">
                         <span class="p-input-icon-left">
                             <i class="pi pi-user"></i>
-                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorRUC" name="proveedorRUC" #proveedorRUC="ngModel" required/>
+                            <input type="number" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorRUC" name="proveedorRUC" #proveedorRUC="ngModel" [max]="100000000000" required/>
                         </span>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                     <div class="col-12 md:col-8">
                         <span class="p-input-icon-left">
                             <i class="pi pi-id-card"></i>
-                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorRazonSocial" name="proveedorRazonSocial" minlength="8" #proveedorRazonSocial="ngModel" required/>
+                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorRazonSocial" name="proveedorRazonSocial" #proveedorRazonSocial="ngModel" required/>
                         </span>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
             </div>
             <div class="field grid">
                 <div class="col-12 md:col-12">
-                    <p-button icon="pi pi-check-circle" label="Guardar" type="submit" [disabled]="!proveedorForm.form.valid" class="mr-5" styleClass="p-button-raised p-button-text p-button-success"></p-button>
-                    <p-button icon="pi pi-arrow-left" (click)="regresarListaProveedores()" label="Regresar" styleClass="p-button-outlined p-button-danger"></p-button>
+                    <p-button icon="pi pi-check-circle" label="Actualizar" type="submit" [disabled]="!proveedorForm.form.valid" class="mr-5" styleClass="p-button-raised p-button-text p-button-success"></p-button>
+                    <p-button icon="pi pi-arrow-left" (click)="regresaListaProveedores()" label="Regresar" styleClass="p-button-outlined p-button-danger"></p-button>
                 </div>
             </div>
         </form>
