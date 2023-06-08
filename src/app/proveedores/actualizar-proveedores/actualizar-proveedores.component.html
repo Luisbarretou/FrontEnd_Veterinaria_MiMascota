@@ -1,1 +1,73 @@
-<p>actualizar-proveedores works!</p>
+<div class="card">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+    <h1 style="font-family: 'Poppins', sans-serif;">Actualizar Proveedor</h1>
+        <div class="col-12 md:col-12">
+            <form (ngSubmit)="actualizarProveedores()" #proveedorForm="ngForm" class="form-sample">
+            <div class="card p-fluid">
+                <h5>Datos personales</h5>
+                <div class="field grid">
+                    <label style="color: #f01;" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Campos requeridos (*)</label>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">RUC (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-user"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorRUC" name="proveedorRUC" #proveedorRUC="ngModel" required/>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Razon Social (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-id-card"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorRazonSocial" name="proveedorRazonSocial" minlength="8" #proveedorRazonSocial="ngModel" required/>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Celular / Telefono (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-phone"></i>
+                            <input type="number" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorTelefono" name="proveedorTelefono" minlength="9" #proveedorTelefono="ngModel" [min]="100000" [max]="999999999" required>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Direccion (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-map-marker"></i>
+                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorDireccion" name="proveedorDireccion" #proveedorDireccion="ngModel" required/>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Correo Electrónico</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-at"></i>
+                            <input type="email" class="p-inputtext-lg" pInputText [(ngModel)]="proveedor.proveedorCorreo" name="proveedorCorreo" #proveedorCorreo="ngModel" />
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Estado</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <p-dropdown [options]="estado" class="p-inputtext-lg" [(ngModel)]="proveedor.proveedorEstado" name="proveedorEstado" #proveedorEstado="ngModel"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="field grid">
+                <div class="col-12 md:col-12">
+                    <p-button icon="pi pi-check-circle" label="Guardar" type="submit" [disabled]="!proveedorForm.form.valid" class="mr-5" styleClass="p-button-raised p-button-text p-button-success"></p-button>
+                    <p-button icon="pi pi-arrow-left" (click)="regresarListaProveedores()" label="Regresar" styleClass="p-button-outlined p-button-danger"></p-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -82,6 +82,28 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
+                label: 'PROVEEDOR',
+                icon: 'pi pi-fw pi-briefcase',
+                items: [
+                    {
+                        label: 'Proveedor',
+                        icon: 'pi pi-fw pi-calendar-plus',
+                        items: [
+                            {
+                                label: 'Registrar',
+                                icon: 'pi pi-fw pi-plus-circle',
+                                routerLink: ['/crear-proveedores']
+                            },
+                            {
+                                label: 'Listado',
+                                icon: 'pi pi-fw pi-database',
+                                routerLink: ['/proveedores']
+                            }
+                        ]
+                    },
+                ]
+            },
+            {
                 label: 'MANTENEDORES',
                 icon: 'pi pi-fw pi-briefcase',
                 items: [
