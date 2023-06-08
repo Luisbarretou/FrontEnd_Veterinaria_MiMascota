@@ -30,7 +30,7 @@ export class DetalleProveedoresComponent {
         this.proveedor = dato;
         Swal.fire(
           'Detalle del Proveedor',
-          `Razon Social: ${this.proveedor.proveedorRazonSocial}`,
+          `Razon Social: ${this.proveedor.proveedorId}`,
           'info'
         )
       })

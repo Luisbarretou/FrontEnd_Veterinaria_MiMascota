@@ -34,7 +34,7 @@ export class ActualizarProveedoresComponent {
       this.proveedor = dato;
       Swal.fire(
         'Actulización de Proveedor',
-        'Razon Social: ${this.proveedor.proveedorRazonSocial}',
+        `ID: ${this.proveedor.proveedorId}`,
         'info',
       )
     })
@@ -60,7 +60,7 @@ export class ActualizarProveedoresComponent {
       if(result.isConfirmed){
         Swal.fire(
           'Proveedor Actualizado',
-          'El Proveedor: ${this.proveedor.proveedorRazonSocial} ha sido actualizado con exito',
+          `ID: ${this.proveedor.proveedorId} ha sido actualizado con exito`,
           'success'
         )
         this.proveedorService.actualizarProveedores(this.id, this.proveedor).subscribe(dato=>{
