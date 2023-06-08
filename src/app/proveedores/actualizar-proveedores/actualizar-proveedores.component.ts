@@ -63,9 +63,9 @@ export class ActualizarProveedoresComponent {
           `ID: ${this.proveedor.proveedorId} ha sido actualizado con exito`,
           'success'
         )
-        this.proveedorService.actualizarProveedores(this.id, this.proveedor).subscribe(dato=>{
-          this.router.navigate[('./proveedores')];
-        })
+          this.proveedorService.actualizarProveedores(this.id, this.proveedor).subscribe(dato=>{
+          this.router.navigate(['./proveedores']);
+          })
       }
     })
   }

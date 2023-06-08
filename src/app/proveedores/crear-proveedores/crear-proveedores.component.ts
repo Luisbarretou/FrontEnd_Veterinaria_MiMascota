@@ -40,7 +40,7 @@ export class CrearProveedoresComponent {
       this.router.navigate(['./proveedores']);
       Swal.fire(
         'Proveedor Creado',
-        `El Proveedor: "${this.proveedor.proveedorRazonSocial}" ha sido creado con exito`,
+        `El Proveedor: "${this.proveedor.proveedorId}" ha sido creado con exito`,
         `success`
       );
     }
