@@ -26,6 +26,7 @@ export class CrearProductosComponent {
     constructor(private productoService: ProductoService, private router: Router, proveedorService: ProveedorService) {}
 
     ngOnInit(): void {
+        this.obtenerListaProveedoresHabilitados();
         this.categorias = [
             { name: "No definido" },
             { name: "Accesorios" },
@@ -57,6 +58,12 @@ export class CrearProductosComponent {
     //         this.proveedores = dato;
     //     })
     // }
+
+    private obtenerListaProveedoresHabilitados() {
+        return this.productoService.obtenerListaProveedoresHabilitados().subscribe( dato => {
+            this.proveedores = dato;
+        })
+    }
 
     registroProducto() {
         this.productoService.crearProducto(this.producto).subscribe(dato => {

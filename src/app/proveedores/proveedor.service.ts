@@ -8,27 +8,31 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProveedorService {
 
-
     private urlBackend = "http://localhost:7071/api/proveedores";
 
     constructor(private httpClient: HttpClient) { }
 
-    obtenerListaProveedor(): Observable<Proveedor[]> {
+    obtenerListaProveedores(): Observable<Proveedor[]> {
         return this.httpClient.get<Proveedor[]>(`${this.urlBackend}`);
     }
-    obtenerProveedores(id: number): Observable<Proveedor> {
+
+    obtenerListaProveedoresHabilitados(): Observable<Proveedor[]> {
+        return this.httpClient.get<Proveedor[]>(`${this.urlBackend}/habilitados`);
+    }
+
+    obtenerProveedor(id: number): Observable<Proveedor> {
         return this.httpClient.get<Proveedor>(`${this.urlBackend}/${id}`);
     }
 
-    crearProveedores(proveedor: Proveedor): Observable<object> {
+    crearProveedor(proveedor: Proveedor): Observable<object> {
         return this.httpClient.post(`${this.urlBackend}`, proveedor);
     }
 
-    actualizarProveedores(id: number, proveedor: Proveedor): Observable<object> {
+    actualizarProveedor(id: number, proveedor: Proveedor): Observable<object> {
         return this.httpClient.put(`${this.urlBackend}/${id}`, proveedor);
     }
 
     inhabilitarProveedor(id: number): Observable<object> {
-        return this.httpClient.put(`${this.urlBackend}/${id}/inhabilitar`,{});
+        return this.httpClient.put(`${this.urlBackend}/${id}/inhabilitar`, {});
     }
 }

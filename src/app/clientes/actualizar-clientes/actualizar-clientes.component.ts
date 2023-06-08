@@ -8,8 +8,7 @@ import { MenuItem } from 'primeng/api';
 @Component({
     selector: 'app-actualizar-clientes',
     templateUrl: './actualizar-clientes.component.html',
-    styles: [
-    ]
+    styles: []
 })
 export class ActualizarClientesComponent {
 
@@ -23,7 +22,7 @@ export class ActualizarClientesComponent {
     home: MenuItem;
 
     constructor(private clienteService: ClienteService, private router: Router,
-                private activatedRoute: ActivatedRoute) { }
+        private activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.id = this.activatedRoute.snapshot.params['id'];
@@ -66,14 +65,14 @@ export class ActualizarClientesComponent {
                     `El cliente: ${this.cliente.clienteId} ha sido actualizado con éxito`,
                     'success'
                 )
-                this.clienteService.actualizarCliente(this.id, this.cliente).subscribe( dato => {
+                this.clienteService.actualizarCliente(this.id, this.cliente).subscribe(dato => {
                     this.router.navigate(['./clientes']);
                 })
             }
         })
     }
 
-    regresarListaClientes() {
+    regresaListaClientes() {
         Swal.fire({
             title: 'Está seguro de cancelar la operación?',
             text: "Regresarás a la lista de clientes!",
@@ -84,12 +83,13 @@ export class ActualizarClientesComponent {
             confirmButtonText: 'Si, quiero cancelar la actualización!'
         }).then((result) => {
             if (result.isConfirmed) {
-            Swal.fire(
-                'Operación cancelada!',
-                'Has sido redirigido a la lista de clientes.',
-                'error'
-            )
-            this.router.navigate(['./clientes']);}
+                Swal.fire(
+                    'Operación cancelada!',
+                    'Has sido redirigido a la lista de clientes.',
+                    'error'
+                )
+                this.router.navigate(['./clientes']);
+            }
         })
     }
 

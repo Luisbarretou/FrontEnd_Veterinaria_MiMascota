@@ -7,41 +7,38 @@ import { Route, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-crear-proveedores',
-  templateUrl: './crear-proveedores.component.html',
-  styles: [
-  ]
+    selector: 'app-crear-proveedores',
+    templateUrl: './crear-proveedores.component.html',
+    styles: []
 })
 export class CrearProveedoresComponent {
 
-  proveedor: Proveedor = new Proveedor();
+    proveedor: Proveedor = new Proveedor();
 
-  items: MenuItem[];
-  home: MenuItem;
+    items: MenuItem[];
+    home: MenuItem;
 
 
-  constructor(private proveedorService: ProveedorService, private router: Router){ }
+    constructor(private proveedorService: ProveedorService, private router: Router) { }
 
-    ngOnInit(): void{
+    ngOnInit(): void {
 
-      this.items = [{label:'Proveedor', routerLink: '/proveedores'}, {label: 'Registro '}];
-      this.home = {icon: 'pi pi-home', routerLink: '/dashboard'};
+        this.items = [{ label: 'Proveedor', routerLink: '/proveedores' }, { label: 'Registro ' }];
+        this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
 
-    registroProveedor(){
-
-      this.proveedorService.crearProveedores(this.proveedor).subscribe(dato => {
-        this.regresarListaProveedor();
-      })
+    registroProveedor() {
+        this.proveedorService.crearProveedor(this.proveedor).subscribe(dato => {
+            this.regresarListaProveedores();
+        })
     }
 
-    private regresarListaProveedor(){
-
-      this.router.navigate(['./proveedores']);
-      Swal.fire(
-        'Proveedor Creado',
-        `El Proveedor: "${this.proveedor.proveedorId}" ha sido creado con exito`,
-        `success`
-      );
+    private regresarListaProveedores() {
+        this.router.navigate(['./proveedores']);
+        Swal.fire(
+            'Proveedor Creado',
+            `El Proveedor: "${this.proveedor.proveedorRazonSocial}" ha sido creado con exito`,
+            `success`
+        );
     }
-  }
+}
