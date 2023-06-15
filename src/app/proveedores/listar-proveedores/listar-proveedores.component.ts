@@ -14,7 +14,7 @@ import * as FileSaver from 'file-saver';
 })
 export class ListarProveedoresComponent {
 
-    proveedor: Proveedor[];
+    proveedores: Proveedor[];
     pageActual: number = 1;
 
     seleccionProveedor: Proveedor[];
@@ -29,9 +29,7 @@ export class ListarProveedoresComponent {
     constructor(private proveedorService: ProveedorService, private router: Router) { }
 
     ngOnInit(): void {
-
         this.listarProveedores();
-        proveedor => this.proveedor = proveedor;
 
         this.cols = [
             { field: 'proveedorId', header: 'Codigo', customExportHeader: 'Proveedor' },
@@ -53,8 +51,8 @@ export class ListarProveedoresComponent {
     }
 
     private listarProveedores() {
-        this.proveedorService.obtenerListaProveedores().subscribe(dato => {
-            this.proveedor = dato;
+        this.proveedorService.obtenerListaProveedores().subscribe(prov => {
+            this.proveedores = prov;
         })
     }
 
@@ -108,7 +106,7 @@ export class ListarProveedoresComponent {
 
     exportExcel() {
         import('xlsx').then((xlsx) => {
-            const worksheet = xlsx.utils.json_to_sheet(this.proveedor);
+            const worksheet = xlsx.utils.json_to_sheet(this.proveedores);
             const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
             const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
             this.saveAsExcelFile(excelBuffer, 'proveedores');
@@ -119,7 +117,7 @@ export class ListarProveedoresComponent {
             import('jspdf-autotable').then((x) => {
                 let actual = this.fechaActual.toLocaleString();
                 const doc = new jsPDF.default('p', 'px', 'a4');
-                (doc as any).autoTable(this.exportColumns, this.proveedor);
+                (doc as any).autoTable(this.exportColumns, this.proveedores);
                 doc.save(`proveedores_${actual}.pdf`);
             });
         });

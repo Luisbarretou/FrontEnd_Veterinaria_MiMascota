@@ -18,7 +18,7 @@ export class ProductoService {
     }
 
     obtenerListaProductosHabilitados(): Observable<Producto[]> {
-        return this.httpClient.get<Producto[]>(`${this.urlBackend}/habilitados`);
+        return this.httpClient.get<Producto[]>(this.urlBackend + '/habilitados');
     }
 
     obtenerProducto(id: number): Observable<Producto> {
@@ -36,14 +36,5 @@ export class ProductoService {
     inhabilitarProducto(id: number): Observable<object> {
         return this.httpClient.put(`${this.urlBackend}/${id}/inhabilitar`, {});
     }
-
-
-    //PROVISIONAL
-    private urlProveedores = "http://localhost:7071/api/proveedores";
-
-    obtenerListaProveedoresHabilitados(): Observable<Proveedor[]> {
-        return this.httpClient.get<Proveedor[]>(`${this.urlProveedores}/habilitados`);
-    }
-    //
 
 }

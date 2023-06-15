@@ -9,9 +9,9 @@
                     <label style="color: #f00;" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Campos requeridos (*)</label>
                 </div>
                 <div class="field grid">
-                    <label for="proveedores" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Proveedores (*)</label>
+                    <label for="proveedor" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Proveedores (*)</label>
                     <div class="col-12 md:col-8">
-                        <p-multiSelect class="p-inputtext-lg" [options]="proveedores" [(ngModel)]="producto.proveedores" defaultLabel="Selecciona los proveedores" optionLabel="proveedorRazonSocial" display="chip" required></p-multiSelect>
+                        <p-multiSelect class="p-inputtext-lg" [options]="proveedores" [(ngModel)]="producto.proveedores" defaultLabel="Selecciona los proveedores" optionLabel="proveedorRazonSocial" display="chip" id="proveedor" name="proveedor" #proveedor="ngModel" required></p-multiSelect>
                     </div>
                 </div>
                 <div class="field grid">
