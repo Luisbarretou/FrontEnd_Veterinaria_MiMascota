@@ -28,6 +28,7 @@ export class ListarProductosComponent {
 
     ngOnInit(): void {
         this.listarProductos();
+
         this.items = [{ label: 'Producto' }, { label: 'Lista' }];
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }

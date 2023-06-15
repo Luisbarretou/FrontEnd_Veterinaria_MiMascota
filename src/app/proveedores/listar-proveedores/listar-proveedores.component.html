@@ -1,7 +1,7 @@
 <div class="card">
     <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
     <h1 style="font-family: 'Poppins', sans-serif;">Lista de proveedores</h1>
-    <p-table #dt [columns]="cols" [value]="proveedor" selectionMode="multiple" [(selection)]="seleccionProveedor" [exportHeader]="'customExportHeader'" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25, 50]">
+    <p-table #dt [columns]="cols" [value]="proveedores" selectionMode="multiple" [(selection)]="seleccionProveedor" [exportHeader]="'customExportHeader'" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25, 50]">
         <ng-template pTemplate="caption">
             <div class="flex">
                 <button type="button" pButton pRipple icon="pi pi-download" (click)="dt.exportCSV()" class="p-button-help mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>

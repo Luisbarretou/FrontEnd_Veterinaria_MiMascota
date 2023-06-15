@@ -16,7 +16,7 @@ export class ProveedorService {
         return this.httpClient.get<Proveedor[]>(`${this.urlBackend}`);
     }
 
-    obtenerListaProveedoresHabilitados(): Observable<Proveedor[]> {
+    obtenerProveedoresHabilitados(): Observable<Proveedor[]> {
         return this.httpClient.get<Proveedor[]>(`${this.urlBackend}/habilitados`);
     }
 

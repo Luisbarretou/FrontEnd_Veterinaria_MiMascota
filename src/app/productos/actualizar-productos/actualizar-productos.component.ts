@@ -5,6 +5,7 @@ import { Producto } from '../producto';
 import { Proveedor } from 'src/app/proveedores/proveedor';
 import { MenuItem } from 'primeng/api';
 import Swal from 'sweetalert2';
+import { ProveedorService } from 'src/app/proveedores/proveedor.service';
 
 @Component({
     selector: 'app-actualizar-productos',
@@ -24,11 +25,12 @@ export class ActualizarProductosComponent {
     items: MenuItem[];
     home: MenuItem;
 
-    constructor(private productoService: ProductoService, private activateRoute: ActivatedRoute, private router:Router) {}
+    constructor(private productoService: ProductoService, private proveedorService: ProveedorService,
+                private activateRoute: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
         this.id = this.activateRoute.snapshot.params['id'];
-        this.productoService.obtenerProducto(this.id).subscribe( dato => {
+        this.productoService.obtenerProducto(this.id).subscribe(dato => {
             this.producto = dato;
             Swal.fire(
                 'Actualización de Producto',
@@ -37,7 +39,7 @@ export class ActualizarProductosComponent {
             )
         })
 
-        this.obtenerListaProveedoresHabilitados();
+        this.listaProveedores();
 
         this.estado = [
             "Habilitado",
@@ -63,22 +65,15 @@ export class ActualizarProductosComponent {
             { name: "Proplan" },
             { name: "Ricocan" },
             { name: "Royal Canin" },
-            { name: "Vetlinex"}
+            { name: "Vetlinex" }
         ];
 
         this.items = [{ label: 'Producto', routerLink: '/productos' }, { label: 'Actualización' }];
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
 
-    //SE USARÁ CUANDO EL PROVEEDOR SERVICE ESTE IMPLEMENTADO
-    // private listaProveedoresHabilitados() {
-    //     this.proveedorService.listaProveedoresHabilitados().subscribe( dato => {
-    //         this.proveedores = dato;
-    //     })
-    // }
-
-    private obtenerListaProveedoresHabilitados() {
-        return this.productoService.obtenerListaProveedoresHabilitados().subscribe( dato => {
+    private listaProveedores() {
+        this.proveedorService.obtenerListaProveedores().subscribe( dato => {
             this.proveedores = dato;
         })
     }
@@ -124,6 +119,14 @@ export class ActualizarProductosComponent {
                 this.router.navigate(['./productos']);
             }
         })
+    }
+
+    compararProveedores(proveedor1: Proveedor, proveedor2: Proveedor): boolean {
+        if (proveedor1 === undefined && proveedor2 === undefined) {
+            return true;
+        }
+
+        return proveedor1 === null || proveedor2 === null || proveedor1 === undefined || proveedor2 === undefined ? false : proveedor1.proveedorId === proveedor2.proveedorId;
     }
 
 }
