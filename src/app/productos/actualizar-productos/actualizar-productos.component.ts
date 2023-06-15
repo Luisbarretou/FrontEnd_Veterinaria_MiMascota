@@ -120,13 +120,4 @@ export class ActualizarProductosComponent {
             }
         })
     }
-
-    compararProveedores(proveedor1: Proveedor, proveedor2: Proveedor): boolean {
-        if (proveedor1 === undefined && proveedor2 === undefined) {
-            return true;
-        }
-
-        return proveedor1 === null || proveedor2 === null || proveedor1 === undefined || proveedor2 === undefined ? false : proveedor1.proveedorId === proveedor2.proveedorId;
-    }
-
 }

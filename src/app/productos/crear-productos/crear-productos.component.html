@@ -1,42 +1,6 @@
 <div class="card">
     <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
     <h1 style="font-family: 'Poppins', sans-serif;">Registrar Producto</h1>
-    <p-table #dt [value]="proveedores" selectionMode="multiple" [exportHeader]="'customExportHeader'" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25, 50]">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>ID</th>
-                <th pSortableColumn="proveedorRUC">RUC<p-sortIcon field="proveedorRUC"></p-sortIcon></th>
-                <th pSortableColumn="proveedorRazonSocial">RAZON SOCIAL<p-sortIcon field="proveedorRazonSocial"></p-sortIcon></th>
-                <th pSortableColumn="proveedorTelefono">TELEFONO<p-sortIcon field="proveedorTelefono"></p-sortIcon></th>
-                <th>ESTADO</th>
-                <th>ACCIONES</th>
-            </tr>
-            <tr>
-                <th>
-                    <p-columnFilter type="text" field="proveedorId"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="proveedorRUC"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="proveedorRazonSocial"></p-columnFilter>
-                </th>
-                <th>
-                    <p-columnFilter type="text" field="proveedorTelefono"></p-columnFilter>
-                </th>
-                <th></th>
-                <th></th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns" let-proveedor>
-            <tr [pSelectableRow]="rowData">
-                <td>{{proveedor.proveedorId}}</td>
-                <td>{{proveedor.proveedorRUC}}</td>
-                <td>{{proveedor.proveedorRazonSocial}}</td>
-                <td>{{proveedor.proveedorTelefono}}</td>
-            </tr>
-        </ng-template>
-    </p-table>
         <div class="col-12 md:col-12">
             <form (ngSubmit)="registroProducto()" #productoForm="ngForm" class="form-sample">
             <div class="card p-fluid">
@@ -49,10 +13,6 @@
                     <div class="col-12 md:col-8">
                         <p-multiSelect class="p-inputtext-lg" [options]="proveedores" [(ngModel)]="producto.proveedores" defaultLabel="Selecciona los proveedores" optionLabel="proveedorRazonSocial" display="chip" id="proveedor" name="proveedor" #proveedor="ngModel" required></p-multiSelect>
                     </div>
-                    <!-- <select class="form-control" [(ngModel)]="producto.proveedores" name="proveedor" multiple="multiple" size="10" required>
-                        <option [ngValue]="undefined">--- selecionar uno o varios Proveedores ---</option>
-                        <option *ngFor="let proveedor of proveedores" [ngValue]="proveedores" >{{proveedor.proveedorRazonSocial}}</option>
-                    </select> -->
                 </div>
                 <div class="field grid">
                     <label for="nombre" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Nombre (*)</label>

@@ -13,10 +13,6 @@
                     <label for="proveedores" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Proveedores (*)</label>
                     <div class="col-12 md:col-8">
                         <p-multiSelect class="p-inputtext-lg" [options]="proveedores" [(ngModel)]="producto.proveedores" defaultLabel="Selecciona los proveedores" optionLabel="proveedorRazonSocial" display="chip" id="proveedor" name="proveedor" #proveedor="ngModel" required></p-multiSelect>
-                            <!-- <select [compareWith]="compararProveedores" class="form-control" [(ngModel)]="producto.proveedores" name="proveedorRazonSocial" #proveedor="ngModel" id="proveedor" multiple="multiple" size="10"  required>
-                                <option [ngValue]="undefined">--- selecionar uno o varios Servicios ---</option>
-                                <option *ngFor="let proveedor of proveedores" [ngValue]="proveedor.proveedorId">{{proveedor.proveedorRazonSocial}}</option>
-                            </select> -->
                     </div>
                 </div>
                 <div class="field grid">
