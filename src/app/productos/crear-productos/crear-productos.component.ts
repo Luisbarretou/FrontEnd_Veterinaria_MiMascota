@@ -23,10 +23,11 @@ export class CrearProductosComponent {
     items: MenuItem[];
     home: MenuItem;
 
-    constructor(private productoService: ProductoService, private router: Router, proveedorService: ProveedorService) {}
+    constructor(private productoService: ProductoService, private router: Router, private proveedorService: ProveedorService) { }
 
     ngOnInit(): void {
-        this.obtenerListaProveedoresHabilitados();
+        this.listaProveedoresHabilitados();
+
         this.categorias = [
             { name: "No definido" },
             { name: "Accesorios" },
@@ -45,22 +46,15 @@ export class CrearProductosComponent {
             { name: "Proplan" },
             { name: "Ricocan" },
             { name: "Royal Canin" },
-            { name: "Vetlinex"}
+            { name: "Vetlinex" }
         ];
 
         this.items = [{ label: 'Producto', routerLink: '/productos' }, { label: 'Registro' }];
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
 
-    //SE USARÁ CUANDO EL PROVEEDOR SERVICE ESTE IMPLEMENTADO
-    // private listaProveedoresHabilitados() {
-    //     this.proveedorService.listaProveedoresHabilitados().subscribe( dato => {
-    //         this.proveedores = dato;
-    //     })
-    // }
-
-    private obtenerListaProveedoresHabilitados() {
-        return this.productoService.obtenerListaProveedoresHabilitados().subscribe( dato => {
+    private listaProveedoresHabilitados() {
+        this.proveedorService.obtenerProveedoresHabilitados().subscribe(dato => {
             this.proveedores = dato;
         })
     }
