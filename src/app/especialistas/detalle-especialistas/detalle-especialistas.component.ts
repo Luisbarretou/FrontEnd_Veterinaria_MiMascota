@@ -11,7 +11,7 @@ import { MenuItem } from 'primeng/api';
     styles: []
 })
 export class DetalleEspecialistasComponent {
-
+    
     id: number;
     especialista: Especialista;
 
@@ -43,6 +43,20 @@ export class DetalleEspecialistasComponent {
             `success`
         );
         this.router.navigate(['./especialistas']);
+    }
+
+    obtenerEstado(estado: string) {
+        switch (estado) {
+            case 'Habilitado': {
+                return 'success';
+            }
+            case 'Inhabilitado': {
+                return 'danger';
+            }
+            default: {
+                return 'warning';
+            }
+        }
     }
 
 }

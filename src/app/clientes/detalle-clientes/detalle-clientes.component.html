@@ -29,7 +29,8 @@
                         <h4>{{cliente.clienteDireccion}}</h4>
                         <h4>{{cliente.clienteCorreo}}</h4>
                         <h4>{{cliente.clienteGenero}}</h4>
-                        <h4>{{cliente.clienteEstado}}</h4>
+                        <h4><p-tag [value]="cliente.clienteEstado"
+                            [severity]="obtenerEstado(cliente.clienteEstado)"></p-tag></h4>
                         <h4>{{cliente.clienteFchaCreacion}}</h4>
                     </div>
                 </ng-template>
