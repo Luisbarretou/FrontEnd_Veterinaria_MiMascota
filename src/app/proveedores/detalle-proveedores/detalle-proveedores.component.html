@@ -27,7 +27,8 @@
                         <h4>{{proveedor.proveedorTelefono}}</h4>
                         <h4>{{proveedor.proveedorDireccion}}</h4>
                         <h4>{{proveedor.proveedorCorreo}}</h4>
-                        <h4>{{proveedor.proveedorEstado}}</h4>
+                        <h4><p-tag [value]="proveedor.proveedorEstado"
+                            [severity]="obtenerEstado(proveedor.proveedorEstado)"></p-tag></h4>
                         <h4>{{proveedor.proveedorFchaCreacion}}</h4>
                     </div>
                 </ng-template>

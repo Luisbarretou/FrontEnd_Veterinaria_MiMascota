@@ -29,8 +29,7 @@ export class ListarMascotasComponent {
 
     ngOnInit(): void {
         this.listarMascotas();
-        mascota => this.mascotas = mascota;
-
+        
         this.cols = [
             { field: 'mascotaId', header: 'Codigo', customExportHeader: 'Mascota' },
             { field: 'mascotaNombre', header: 'Nombre' },

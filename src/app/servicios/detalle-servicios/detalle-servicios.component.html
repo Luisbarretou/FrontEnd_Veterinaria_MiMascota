@@ -23,11 +23,39 @@
                         <h4>{{servicio.servicioCategoria}}</h4>
                         <h4>{{servicio.servicioTipo}}</h4>
                         <h4>{{servicio.servicioPrecio}}</h4>
-                        <h4>{{servicio.servicioEstado}}</h4>
+                        <h4><p-tag [value]="servicio.servicioEstado"
+                            [severity]="obtenerEstado(servicio.servicioEstado)"></p-tag></h4>
                         <h4>{{servicio.servicioFechaCreacion}}</h4>
                     </div>
                 </ng-template>
             </p-splitter>
+            <h2 style="font-family: 'Poppins', sans-serif;">Productos</h2>
+            <p-table #dt [value]="servicio.productos" selectionMode="multiple" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25, 50]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>CATEGORIA</th>
+                        <th>MARCA</th>
+                        <th>ESTADO</th>
+                        <th>MAS INFORMACIÓN</th>
+                    </tr>
+                    <tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns" let-producto>
+                    <tr [pSelectableRow]="rowData">
+                        <td>{{producto.productoNombre}}</td>
+                        <td>{{producto.productoCategoria}}</td>
+                        <td>{{producto.productoMarca}}</td>
+                        <td>
+                            <p-tag [value]="producto.productoEstado"
+                            [severity]="obtenerEstado(producto.productoEstado)"></p-tag>
+                        </td>
+                        <td>
+                            <p-button (click)="detalleProducto(producto.productoId)" icon="pi pi-search" [label]="producto.productoNombre" styleClass="p-button-rounded p-button-help p-button-text p-button-raised"></p-button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
             <div class="field grid">
                 <div class="col-12 md:col-12">
                     <p-button (click)="regresarListaServicios()" icon="pi pi-arrow-left" label="Regresar" styleClass="p-button-outlined p-button-danger"></p-button>

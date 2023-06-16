@@ -13,7 +13,6 @@ import { ProveedorService } from 'src/app/proveedores/proveedor.service';
     styles: []
 })
 export class ActualizarProductosComponent {
-
     producto: Producto = new Producto();
     proveedores: Proveedor[];
 
@@ -26,7 +25,7 @@ export class ActualizarProductosComponent {
     home: MenuItem;
 
     constructor(private productoService: ProductoService, private proveedorService: ProveedorService,
-                private activateRoute: ActivatedRoute, private router: Router) { }
+        private activateRoute: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
         this.id = this.activateRoute.snapshot.params['id'];
@@ -73,7 +72,7 @@ export class ActualizarProductosComponent {
     }
 
     private listaProveedores() {
-        this.proveedorService.obtenerListaProveedores().subscribe( dato => {
+        this.proveedorService.obtenerProveedoresHabilitados().subscribe(dato => {
             this.proveedores = dato;
         })
     }

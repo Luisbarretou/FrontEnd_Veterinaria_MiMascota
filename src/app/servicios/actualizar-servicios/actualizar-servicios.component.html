@@ -10,6 +10,14 @@
                         (*)</label>
                 </div>
                 <div class="field grid">
+                    <label for="productos" htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Productos (*)</label>
+                    <div class="col-12 md:col-8">
+                        <p-multiSelect class="p-inputtext-lg" [options]="productos" [(ngModel)]="servicio.productos"
+                            defaultLabel="Selecciona los productos" optionLabel="productoNombre" display="chip"
+                            id="producto" name="producto" #producto="ngModel" required></p-multiSelect>
+                    </div>
+                </div>
+                <div class="field grid">
                     <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Categoria (*)</label>
                     <div class="col-12 md:col-8">
                         <span class="p-input-icon-left">
@@ -31,21 +39,22 @@
                     </div>
                 </div>
                 <div class="field grid">
+                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Precio (*)</label>
+                    <div class="col-12 md:col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-money-bill"></i>
+                            <input type="number" class="p-inputtext-lg" pInputText [(ngModel)]="servicio.servicioPrecio"
+                                name="servicioPrecio" #servicioPrecio="ngModel" [required]="true" [min]="0"
+                                [max]="99999" S>
+                        </span>
+                    </div>
+                </div>
+                <div class="field grid">
                     <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Estado</label>
                     <div class="col-12 md:col-8">
                         <span class="p-input-icon-left">
                             <p-dropdown [options]="estado" class="p-inputtext-lg" [(ngModel)]="servicio.servicioEstado"
                                 name="servicioEstado" #servicioEstado="ngModel"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="field grid">
-                    <label htmlFor="name3" class="col-12 mb-2 md:col-2 md:mb-0">Precio S/ (*)</label>
-                    <div class="col-12 md:col-8">
-                        <span class="p-input-icon-left">
-                            <!--<i class="pi pi-soles"></i>-->
-                            <input type="text" class="p-inputtext-lg" pInputText [(ngModel)]="servicio.servicioPrecio"
-                                name="servicioPrecio" #servicioPrecio="ngModel" required />
                         </span>
                     </div>
                 </div>

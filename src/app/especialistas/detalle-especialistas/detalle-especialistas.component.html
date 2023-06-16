@@ -4,7 +4,7 @@
     <p-card>
         <div class="container mb-5" style="text-align: center;">
             <p-avatar icon="pi pi-user" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
-        </div> 
+        </div>
         <div style="font-family: 'Poppins', sans-serif;" class="container">
             <p-splitter styleClass="mb-5">
                 <ng-template pTemplate>
@@ -25,7 +25,8 @@
                         <h4>{{especialista.especialistaNombres}}</h4>
                         <h4>{{especialista.especialistaArea}}</h4>
                         <h4>{{especialista.especialistaTelefono}}</h4>
-                        <h4>{{especialista.especialistaEstado}}</h4>
+                        <h4><p-tag [value]="especialista.especialistaEstado"
+                            [severity]="obtenerEstado(especialista.especialistaEstado)"></p-tag></h4>
                         <h4>{{especialista.especialistaFechaCreacion}}</h4>
                     </div>
                 </ng-template>

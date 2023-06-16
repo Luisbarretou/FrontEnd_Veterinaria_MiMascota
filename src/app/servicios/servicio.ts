@@ -1,3 +1,5 @@
+import { Producto } from "../productos/producto";
+
 export class Servicio {
     servicioId: number;
     servicioCategoria: string;
@@ -5,4 +7,5 @@ export class Servicio {
     servicioPrecio: Float32Array;
     servicioEstado: string;
     servicioFechaCreacion: string;
+    productos: Array<Producto> = [];
 }

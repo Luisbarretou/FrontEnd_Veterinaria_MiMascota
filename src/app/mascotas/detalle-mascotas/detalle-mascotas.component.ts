@@ -8,8 +8,7 @@ import Swal from 'sweetalert2';
 @Component({
     selector: 'app-detalle-mascotas',
     templateUrl: './detalle-mascotas.component.html',
-    styles: [
-    ]
+    styles: []
 })
 export class DetalleMascotasComponent {
 
@@ -48,6 +47,20 @@ export class DetalleMascotasComponent {
 
     detalleCliente(id: number){
         this.router.navigate(['detalle-clientes',id]);
+    }
+
+    obtenerEstado(estado: string) {
+        switch (estado) {
+            case 'Habilitado': {
+                return 'success';
+            }
+            case 'Inhabilitado': {
+                return 'danger';
+            }
+            default: {
+                return 'warning';
+            }
+        }
     }
 
 }

@@ -21,6 +21,10 @@ export class ServicioService {
         return this.httpClient.get<Servicio[]>(`${this.urlBackend}/habilitadas`)
     }
 
+    obtenerServicio(id: number): Observable<Servicio> {
+        return this.httpClient.get<Servicio>(`${this.urlBackend}/${id}`);
+    }
+
     crearServicio(servicio: Servicio): Observable<Object> {
         return this.httpClient.post(`${this.urlBackend}`, servicio);
     }
@@ -29,8 +33,8 @@ export class ServicioService {
         return this.httpClient.put(`${this.urlBackend}/${id}`, servicio);
     }
 
-    obtenerServicio(id: number): Observable<Servicio> {
-        return this.httpClient.get<Servicio>(`${this.urlBackend}/${id}`);
+    inhabilitarServicio(id: number): Observable<object> {
+        return this.httpClient.put(`${this.urlBackend}/${id}/inhabilitar`, {});
     }
 
     eliminarServicio(id: number): Observable<Object> {

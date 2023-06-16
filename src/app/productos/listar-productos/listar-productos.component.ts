@@ -15,7 +15,6 @@ import * as FileSaver from 'file-saver';
 export class ListarProductosComponent {
 
     productos: Producto[];
-
     pageActual: number = 1;
 
     seleccionProducto: Producto[];
@@ -93,13 +92,24 @@ export class ListarProductosComponent {
                 const tableData: any = [];
                 let actual = this.fechaActual.toLocaleString();
 
-                // Recorrer los datos y agregarlos a la tabla
+                // Recorrer los productos
                 productos.forEach((p) => {
-                    const row = [p.productoId, p.productoNombre, p.productoMarca, p.productoCategoria, p.productoPrecio, p.productoFchaCreacion, p.productoEstado, p.proveedores.forEach((pro) => {
-                        pro.proveedorRUC, pro.proveedorRazonSocial
-                    })
-                    ]; // Ejemplo de atributos de la relación
-                    tableData.push(row);
+                    // Crear una fila por cada proveedor del producto
+                    p.proveedores.forEach((proveedor, index) => {
+                        // Crear una fila con los datos del producto y los datos del proveedor
+                        const row = [
+                            index === 0 ? p.productoId : '', // Solo mostrar el ID del producto en la primera fila del proveedor
+                            index === 0 ? p.productoNombre : '', // Solo mostrar el nombre del producto en la primera fila del proveedor
+                            index === 0 ? p.productoMarca : '', // Solo mostrar la marca del producto en la primera fila del proveedor
+                            index === 0 ? p.productoCategoria : '', // Solo mostrar la categoría del producto en la primera fila del proveedor
+                            index === 0 ? p.productoPrecio : '', // Solo mostrar el precio del producto en la primera fila del proveedor
+                            index === 0 ? p.productoFchaCreacion : '', // Solo mostrar la fecha de creación del producto en la primera fila del proveedor
+                            index === 0 ? p.productoEstado : '', // Solo mostrar el estado del producto en la primera fila del proveedor
+                            proveedor.proveedorRUC, // RUC del proveedor
+                            proveedor.proveedorRazonSocial, // Razón Social del proveedor
+                        ];
+                        tableData.push(row);
+                    });
                 });
 
                 // Configurar la estructura de la tabla
@@ -118,17 +128,21 @@ export class ListarProductosComponent {
 
             // Recorrer los datos y agregarlos a la tabla
             productos.forEach((p) => {
-                const row = [p.productoId, p.productoNombre, p.productoMarca, p.productoCategoria, p.productoPrecio, p.productoFchaCreacion, p.productoEstado, p.proveedores.forEach((pro) => {
-                    pro.proveedorRUC, pro.proveedorRazonSocial
-                })
-                ]; // Ejemplo de atributos de la relación
-                tableData.push(row);
+                p.proveedores.forEach((pro) => {
+                    const row = [p.productoId, p.productoNombre, p.productoMarca, p.productoCategoria, p.productoPrecio, p.productoFchaCreacion, p.productoEstado,
+                        pro.proveedorRUC, pro.proveedorRazonSocial
+                    ];
+                    tableData.push(row);
+                });
             });
 
             const worksheet = xlsx.utils.json_to_sheet(tableData);
             const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
-            xlsx.utils.sheet_add_aoa(worksheet, [['ID', 'Nombre', 'Marca', 'Categoria', 'Precio', 'Fcha Creacion', 'Estado', 'Prov RUC', 'Prov Razon Social']]);
-            const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+            xlsx.utils.sheet_add_aoa(worksheet, [['ID','Nombre', 'Marca', 'Categoria', 'Precio', 'Fcha Creacion', 'Estado', 'Prov RUC', 'Prov Razon Social']]);
+            const excelBuffer: any = xlsx.write(workbook, {
+                bookType: 'xlsx',
+                type: 'array'
+            });
             this.saveAsExcelFile(excelBuffer, 'productos');
         });
     }
@@ -142,6 +156,7 @@ export class ListarProductosComponent {
         });
         FileSaver.saveAs(data, fileName + '_export_' + actual + EXCEL_EXTENSION);
     }
+
 
     obtenerEstado(estado: string) {
         switch (estado) {

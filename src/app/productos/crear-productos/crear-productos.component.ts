@@ -13,7 +13,6 @@ import { MenuItem } from 'primeng/api';
     styles: []
 })
 export class CrearProductosComponent {
-
     producto: Producto = new Producto();
     proveedores: Proveedor[];
 
@@ -56,7 +55,7 @@ export class CrearProductosComponent {
     private listaProveedoresHabilitados() {
         this.proveedorService.obtenerProveedoresHabilitados().subscribe(dato => {
             this.proveedores = dato;
-        })
+        });
     }
 
     registroProducto() {

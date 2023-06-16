@@ -4,6 +4,7 @@ import { MenuItem } from "primeng/api";
 import { ServicioService } from "../servicio.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import Swal from "sweetalert2";
+import { Producto } from "src/app/productos/producto";
 
 
 @Component({
@@ -16,6 +17,7 @@ import Swal from "sweetalert2";
 export class DetalleServiciosComponent {
     id: number;
     servicio: Servicio;
+    productos: Producto[];
 
     items: MenuItem[];
     home: MenuItem;
@@ -33,7 +35,7 @@ export class DetalleServiciosComponent {
                 'info'
             )
         })
-    
+
         this.items = [{ label: 'Servicio', routerLink: '/servicios' }, { label: 'Detalle' }];
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
     }
@@ -45,5 +47,26 @@ export class DetalleServiciosComponent {
             `success`
         );
         this.router.navigate(['./servicios']);
+    }
+
+    obtenerEstado(estado: string) {
+        switch (estado) {
+            case 'Habilitado': {
+                return 'success';
+            }
+            case 'Inhabilitado': {
+                return 'danger';
+            }
+            case 'Bajo Stock': {
+                return 'warning';
+            }
+            default: {
+                return 'primary';
+            }
+        }
+    }
+
+    detalleProducto(id: number){
+        this.router.navigate(['detalle-productos',id]);
     }
 }
