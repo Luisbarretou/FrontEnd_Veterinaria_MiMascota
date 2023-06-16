@@ -44,4 +44,18 @@ export class DetalleProveedoresComponent {
         this.router.navigate(['./proveedores']);
     }
 
+    obtenerEstado(estado: string) {
+        switch (estado) {
+            case 'Habilitado': {
+                return 'success';
+            }
+            case 'Inhabilitado': {
+                return 'danger';
+            }
+            default: {
+                return 'warning';
+            }
+        }
+    }
+
 }

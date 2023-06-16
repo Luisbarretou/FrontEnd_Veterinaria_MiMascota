@@ -20,7 +20,7 @@ export class ListarServiciosComponent {
     seleccionServicio: Servicio[];
     cols: any[];
     exportColumns: any[];
-    
+
     items: MenuItem[];
     home: MenuItem;
 
@@ -100,22 +100,65 @@ export class ListarServiciosComponent {
         })
     }
 
-    exportPdf() {
+    exportPdf(servicios: Servicio[]): void {
         import('jspdf').then((jsPDF) => {
             import('jspdf-autotable').then((x) => {
+                const doc = new jsPDF.default('l', 'px', 'a4');
+                const tableData: any = [];
                 let actual = this.fechaActual.toLocaleString();
-                const doc = new jsPDF.default('p', 'px', 'a4');
-                (doc as any).autoTable(this.exportColumns, this.servicios);
+
+                // Recorrer los servicios
+                servicios.forEach((s) => {
+                    // Crear una fila por cada producto del servicio
+                    s.productos.forEach((producto, index) => {
+                        // Crear una fila con los datos del servicio y los datos del producto
+                        const row = [
+                            index === 0 ? s.servicioId : '',
+                            index === 0 ? s.servicioCategoria : '',
+                            index === 0 ? s.servicioTipo : '',
+                            index === 0 ? s.servicioPrecio : '',
+                            index === 0 ? s.servicioEstado : '',
+                            index === 0 ? s.servicioFechaCreacion : '',
+                            producto.productoId,
+                            producto.productoNombre,
+                            producto.productoMarca,
+                            producto.productoCategoria
+                        ];
+                        tableData.push(row);
+                    });
+                });
+
+                // Configurar la estructura de la tabla
+                const tableHeaders = ['ID', 'Categoria', 'Tipo', 'Precio', 'Estado', 'Fcha Creacion', 'Prod ID', 'Prod Nombre', 'Prod Marca', 'Prod Categoria'];
+                (doc as any).autoTable({ head: [tableHeaders], body: tableData });
+
+                // Guardar el PDF
                 doc.save(`servicios_${actual}.pdf`);
             });
         });
     }
-    
-    exportExcel() {
+
+    exportExcel(servicios: Servicio[]) {
         import('xlsx').then((xlsx) => {
-            const worksheet = xlsx.utils.json_to_sheet(this.servicios);
+            const tableData: any = [];
+
+            // Recorrer los datos y agregarlos a la tabla
+            servicios.forEach((s) => {
+                s.productos.forEach((pro) => {
+                    const row = [s.servicioId, s.servicioCategoria, s.servicioTipo, s.servicioPrecio, s.servicioEstado, s.servicioFechaCreacion,
+                        pro.productoId, pro.productoNombre, pro.productoMarca, pro.productoCategoria
+                    ];
+                    tableData.push(row);
+                });
+            });
+
+            const worksheet = xlsx.utils.json_to_sheet(tableData);
             const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
-            const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+            xlsx.utils.sheet_add_aoa(worksheet, [['ID', 'Categoria', 'Tipo', 'Precio', 'Estado', 'Fcha Creacion', 'Prod ID', 'Prod Nombre', 'Prod Marca', 'Prod Categoria']]);
+            const excelBuffer: any = xlsx.write(workbook, {
+                bookType: 'xlsx',
+                type: 'array'
+            });
             this.saveAsExcelFile(excelBuffer, 'servicios');
         });
     }

@@ -8,8 +8,7 @@ import { MenuItem } from 'primeng/api';
 @Component({
     selector: 'app-detalle-clientes',
     templateUrl: './detalle-clientes.component.html',
-    styles: [
-    ]
+    styles: []
 })
 export class DetalleClientesComponent {
 
@@ -44,6 +43,20 @@ export class DetalleClientesComponent {
             `success`
         );
         this.router.navigate(['./clientes']);
+    }
+
+    obtenerEstado(estado: string) {
+        switch (estado) {
+            case 'Habilitado': {
+                return 'success';
+            }
+            case 'Inhabilitado': {
+                return 'danger';
+            }
+            default: {
+                return 'warning';
+            }
+        }
     }
 
 }

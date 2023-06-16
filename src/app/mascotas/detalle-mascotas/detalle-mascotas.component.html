@@ -30,7 +30,8 @@
                         <h4>{{mascota.mascotaFechaNacimiento}}</h4>
                         <h4>{{mascota.mascotaColor}}</h4>
                         <h4>{{mascota.mascotaSexo}}</h4>
-                        <h4>{{mascota.mascotaEstado}}</h4>
+                        <h4><p-tag [value]="mascota.mascotaEstado"
+                            [severity]="obtenerEstado(mascota.mascotaEstado)"></p-tag></h4>
                         <h4>{{mascota.mascotaFchaCreacion}}</h4>
                         <h4>{{mascota.mascotaObservaciones}}</h4>
                     </div>
@@ -42,7 +43,6 @@
                         <h4><b>Nro Documento:</b> {{mascota.cliente.clienteNroDocumento}}</h4>
                         <h4><b>Direccion:</b> {{mascota.cliente.clienteDireccion}}</h4>
                         <h4><b>Telefono:</b> {{mascota.cliente.clienteTelefono}}</h4>
-                        <!-- <a (click)="detalleCliente(mascota.cliente.clienteId)" class="btn btn-primary">Mas Informacion</a> -->
                         <p-button (click)="detalleCliente(mascota.cliente.clienteId)" icon="pi pi-search" styleClass="p-button-rounded p-button-success p-button-text p-button-raised" label="Mas informcación"></p-button>
                     </div>
                 </ng-template>

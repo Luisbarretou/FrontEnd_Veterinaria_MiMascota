@@ -33,7 +33,7 @@
                 </ng-template>
             </p-splitter>
             <h2 style="font-family: 'Poppins', sans-serif;">Proveedores</h2>
-            <p-table #dt [value]="producto.proveedores" selectionMode="multiple" [exportHeader]="'customExportHeader'" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25, 50]">
+            <p-table #dt [value]="producto.proveedores" selectionMode="multiple" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 25, 50]">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>RUC</th>

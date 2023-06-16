@@ -4,6 +4,8 @@ import { MenuItem } from "primeng/api";
 import { ServicioService } from "../servicio.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import Swal from "sweetalert2";
+import { Producto } from "src/app/productos/producto";
+import { ProductoService } from "src/app/productos/producto.service";
 
 
 @Component({
@@ -14,14 +16,15 @@ import Swal from "sweetalert2";
 
 export class ActualizarServiciosComponent {
     servicio: Servicio = new Servicio();
+    productos: Producto[];
     id: number;
     estado: string[];
 
     items: MenuItem[];
     home: MenuItem;
 
-    constructor(private servicioService: ServicioService, private router: Router,
-        private activatedRoute: ActivatedRoute) { }
+    constructor(private servicioService: ServicioService, private productoService: ProductoService,
+        private router: Router, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.id = this.activatedRoute.snapshot.params['id'];
@@ -34,6 +37,8 @@ export class ActualizarServiciosComponent {
             )
         })
 
+        this.listarProductos();
+
         this.estado = [
             "Habilitado",
             "Inhabilitado"
@@ -42,8 +47,14 @@ export class ActualizarServiciosComponent {
         this.items = [{ label: 'Servicio', routerLink: '/servicios' }, { label: 'Actualización' }];
         this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
 
-    }  
-    
+    }
+
+    private listarProductos(){
+        this.productoService.obtenerListaProductosHabilitados().subscribe( dato => {
+            this.productos = dato;
+        });
+    }
+
     actualizarServicio() {
         Swal.fire({
             title: 'Está seguro de los cambios realizados?',
