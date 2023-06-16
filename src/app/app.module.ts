@@ -69,6 +69,9 @@ import { ListarProductosComponent } from './productos/listar-productos/listar-pr
 import { CrearProductosComponent } from './productos/crear-productos/crear-productos.component';
 import { ActualizarProductosComponent } from './productos/actualizar-productos/actualizar-productos.component';
 import { DetalleProductosComponent } from './productos/detalle-productos/detalle-productos.component';
+import { CrearDetallehistoriasComponent } from './detalleHistoria/crear-detallehistorias/crear-detallehistorias.component';
+import { ActualizarDetallehistoriasComponent } from './detalleHistoria/actualizar-detallehistorias/actualizar-detallehistorias.component';
+import { DetalleDetallehistoriasComponent } from './detalleHistoria/detalle-detallehistorias/detalle-detallehistorias.component';
 
 @NgModule({
     declarations: [
@@ -105,7 +108,10 @@ import { DetalleProductosComponent } from './productos/detalle-productos/detalle
         CrearProveedoresComponent,
         ListarProveedoresComponent,
         DetalleProveedoresComponent,
-        
+        CrearDetallehistoriasComponent,
+        ActualizarDetallehistoriasComponent,
+        DetalleDetallehistoriasComponent,
+
     ],
     imports: [
         AppRoutingModule,
