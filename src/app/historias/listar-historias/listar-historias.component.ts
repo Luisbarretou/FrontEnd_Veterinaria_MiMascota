@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HistoriaService } from '../historia.service';
 import { Router } from '@angular/router';
 import { Historia } from '../historia';
@@ -13,7 +13,7 @@ import { MascotaService } from 'src/app/mascotas/mascota.service';
     templateUrl: './listar-historias.component.html',
     styles: []
 })
-export class ListarHistoriasComponent {
+export class ListarHistoriasComponent implements OnInit{
 
     historias: Historia[];
     historia: Historia = new Historia();
