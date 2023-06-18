@@ -30,6 +30,8 @@ import { ListarProductosComponent } from './productos/listar-productos/listar-pr
 import { CrearProductosComponent } from './productos/crear-productos/crear-productos.component';
 import { ActualizarProductosComponent } from './productos/actualizar-productos/actualizar-productos.component';
 import { DetalleProductosComponent } from './productos/detalle-productos/detalle-productos.component';
+import { ActualizarDetallehistoriasComponent } from './detalleHistoria/actualizar-detallehistorias/actualizar-detallehistorias.component';
+import { DetalleDetallehistoriasComponent } from './detalleHistoria/detalle-detallehistorias/detalle-detallehistorias.component';
 
 const routes: Routes = [
 
@@ -76,6 +78,10 @@ const routes: Routes = [
     { path: 'crear-productos', component: CrearProductosComponent },
     { path: 'actualizar-productos/:id', component: ActualizarProductosComponent },
     { path: 'detalle-productos/:id', component: DetalleProductosComponent },
+
+    { path: 'actualizar-detalleHistoria/:id', component: ActualizarDetallehistoriasComponent },
+    { path: 'detalle-detalleHistoria/:id', component: DetalleDetallehistoriasComponent },
+
 ];
 
 @NgModule({
