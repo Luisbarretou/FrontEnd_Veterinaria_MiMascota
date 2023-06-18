@@ -18,7 +18,7 @@ export class ServicioService {
     }
 
     obtenerServiciosHabilitados(): Observable<Servicio[]> {
-        return this.httpClient.get<Servicio[]>(`${this.urlBackend}/habilitadas`)
+        return this.httpClient.get<Servicio[]>(`${this.urlBackend}/habilitados`)
     }
 
     obtenerServicio(id: number): Observable<Servicio> {

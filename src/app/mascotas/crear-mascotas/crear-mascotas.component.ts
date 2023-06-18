@@ -85,15 +85,15 @@ export class CrearMascotasComponent {
                 label: 'Gato',
                 value: 'Gato',
                 items: [
-                    { label: 'Angora', value: 'Gato' },
-                    { label: 'Balinés', value: 'Gato' },
-                    { label: 'Bambino', value: 'Gato' },
-                    { label: 'Blanco', value: 'Gato' },
-                    { label: 'Bombay', value: 'Gato' },
-                    { label: 'Elfo', value: 'Gato' },
-                    { label: 'Esfinge', value: 'Gato' },
-                    { label: 'Siamés', value: 'Gato' },
-                    { label: 'Persa', value: 'Gato' }
+                    { label: 'Angora', value: 'Angora' },
+                    { label: 'Balinés', value: 'Balinés' },
+                    { label: 'Bambino', value: 'Bambino' },
+                    { label: 'Blanco', value: 'Blanco' },
+                    { label: 'Bombay', value: 'Bombay' },
+                    { label: 'Elfo', value: 'Elfo' },
+                    { label: 'Esfinge', value: 'Esfinge' },
+                    { label: 'Siamés', value: 'Siamés' },
+                    { label: 'Persa', value: 'Persa' }
                 ]
             }
             ,

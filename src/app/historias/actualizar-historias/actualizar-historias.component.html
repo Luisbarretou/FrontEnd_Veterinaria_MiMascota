@@ -12,26 +12,477 @@
                 <div class="p-formgrid grid">
                     <div class="field col">
                         <label htmlFor="name2">Id</label>
-                        <input pInputText type="text" class="p-inputtext-lg" [placeholder]="historia.historiaId" [disabled]="true"/>
+                        <input pInputText type="text" class="p-inputtext-lg" [placeholder]="historia.historiaId"
+                            [disabled]="true" />
                     </div>
                     <div class="field col">
                         <label for="mascota" htmlFor="name3">Mascota (*)</label>
                         <div>
                             <p-dropdown class="p-inputtext-lg" [options]="mascotas" [(ngModel)]="historia.mascota"
-                                optionLabel="mascotaNombre" [filter]="true" id="mascota" name="mascota" #mascota="ngModel"
-                                placeholder="Sin seleccionar" [required]="true"></p-dropdown>
+                                optionLabel="mascotaNombre" [filter]="true" id="mascota" name="mascota"
+                                #mascota="ngModel" placeholder="Sin seleccionar" [required]="true"></p-dropdown>
                         </div>
                     </div>
                     <div class="field col">
                         <label htmlFor="name3">Estado</label>
                         <div>
                             <span class="p-input-icon-left">
-                                <p-dropdown [options]="estado" class="p-inputtext-lg" [(ngModel)]="historia.historiaEstado"
-                                    name="historiaEstado" #historiaEstado="ngModel"></p-dropdown>
+                                <p-dropdown [options]="estado" class="p-inputtext-lg"
+                                    [(ngModel)]="historia.historiaEstado" name="historiaEstado"
+                                    #historiaEstado="ngModel"></p-dropdown>
                             </span>
                         </div>
                     </div>
                 </div>
+                <h1 style="font-family: 'Poppins', sans-serif;">Detalle de la Historia: {{historia.historiaId}}</h1>
+                <p-table #dt [value]="historia.detallesHistoria" selectionMode="multiple"
+                    [(selection)]="seleccionDetalle" [exportHeader]="'customExportHeader'"
+                    [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="3"
+                    [rowsPerPageOptions]="[3, 5, 10, 25, 50]">
+                    <ng-template pTemplate="caption">
+                        <div class="flex">
+                            <div class="justify-content-center" style="text-align: center;">
+                                <p-button styleClass="p-button-outlined p-button-success" label="Registrar Detalle"
+                                    icon="pi pi-plus-circle" (click)="showRegistro()"></p-button>
+                                <p-dialog header="REGISTRO DE DETALLE DE HISTORIA VETERINARIA" [(visible)]="registro"
+                                    [style]="{ width: '50vw' }" [modal]="true">
+                                    <p class="m-0">Para el registro de un detalle de historia, es necesario elegir un
+                                        Servicio y un Especialista.
+                                    </p>
+                                    <br>
+                                    <form (ngSubmit)="registroDetalleHistoria()" #detalleHistoriaForm="ngForm"
+                                        class="form-sample">
+                                        <div class="flex justify-content-center">
+                                            <div class="col-8 md:col-8">
+                                                <div class="card p-fluid">
+                                                    <div class="field grid">
+                                                        <label style="color: #f00;" htmlFor="name3"
+                                                            class="col-12 mb-8 md:col-8 md:mb-0">Campos requeridos
+                                                            (*)</label>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label for="cliente" htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Servicio (*)</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <p-dropdown appendTo="body" [options]="servicios"
+                                                                [(ngModel)]="detalleHistoria.servicio"
+                                                                optionLabel="servicioTipo" [filter]="true" id="servicio"
+                                                                name="servicio" #servicio="ngModel" [required]="true"
+                                                                placeholder="Sin seleccionar"></p-dropdown>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label for="cliente" htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Especialista
+                                                            (*)</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <p-dropdown appendTo="body" [options]="especialistas"
+                                                                [(ngModel)]="detalleHistoria.especialista"
+                                                                optionLabel="especialistaNombres" [filter]="true"
+                                                                id="especialista" name="especialista"
+                                                                #especialista="ngModel" [required]="true"
+                                                                placeholder="Sin seleccionar"></p-dropdown>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Fecha
+                                                            Programada</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <p-calendar class="p-inputtext-lg"
+                                                                    [(ngModel)]="detalleHistoria.detHistoriaFechaProgramada"
+                                                                    [showIcon]="true" dataType="string"
+                                                                    dateFormat="dd-MM-yy"
+                                                                    name="detHistoriaFechaProgramada"
+                                                                    #detHistoriaFechaProgramada="ngModel"></p-calendar>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Fecha Aplicada</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <p-calendar class="p-inputtext-lg"
+                                                                    [(ngModel)]="detalleHistoria.detHistoriaFechaAplicada"
+                                                                    [showIcon]="true" dataType="string"
+                                                                    dateFormat="dd-MM-yy"
+                                                                    name="detHistoriaFechaAplicada"
+                                                                    #detHistoriaFechaAplicada="ngModel"></p-calendar>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Fármaco</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-palette"></i>
+                                                                <input type="text" class="p-inputtext-lg" pInputText
+                                                                    [(ngModel)]="detalleHistoria.detHistoriaFarmaco"
+                                                                    name="detHistoriaFarmaco"
+                                                                    #detHistoriaFarmaco="ngModel" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Tratamiento</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-palette"></i>
+                                                                <input type="text" class="p-inputtext-lg" pInputText
+                                                                    [(ngModel)]="detalleHistoria.detHistoriaTratamiento"
+                                                                    name="detHistoriaTratamiento"
+                                                                    #detHistoriaTratamiento="ngModel" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Peso</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-palette"></i>
+                                                                <input type="number" class="p-inputtext-lg" pInputText
+                                                                    [(ngModel)]="detalleHistoria.detHistoriaPeso"
+                                                                    name="detHistoriaPeso" #detHistoriaPeso="ngModel" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Observaciones</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-align-left"></i>
+                                                                <textarea style="font-size: 18px;" pInputText
+                                                                    [(ngModel)]="detalleHistoria.detHistoriaObservaciones"
+                                                                    name="detHistoriaObservaciones"
+                                                                    #detHistoriaObservaciones="ngModel" rows="3"
+                                                                    cols="30" pInputTextarea
+                                                                    [autoResize]="true"></textarea>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Estado</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-lock"></i>
+                                                                <input type="text" class="p-inputtext-lg" pInputText
+                                                                    placeholder="Habilitado"
+                                                                    [(ngModel)]="detalleHistoria.detHistoriaEstado"
+                                                                    name="detHistoriaEstado"
+                                                                    #detHistoriaEstado="ngModel" disabled="" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field grid">
+                                            <div class="col-12 md:col-12">
+                                                <p-button icon="pi pi-save" label="Registrar" type="submit"
+                                                    [disabled]="!detalleHistoriaForm.form.valid"
+                                                    styleClass="p-button-text p-button-raised p-button-success"
+                                                    (onClick)="registro = false"></p-button>
+                                                <p-button icon="pi pi-eraser" type="reset" label="Limpiar"
+                                                    styleClass="p-button-outlined p-button-danger"></p-button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </p-dialog>
+                                <p-dialog header="ACTUALIZACION DE DETALLE DE HISTORIA VETERINARIA"
+                                    [(visible)]="actualizacion" [style]="{ width: '50vw' }" [modal]="true">
+                                    <form (ngSubmit)="actualizaDetalleHistoria()" #detalleaForm="ngForm"
+                                        class="form-sample">
+                                        <div class="flex justify-content-center" style="text-align: start;">
+                                            <div class="col-8 md:col-8">
+                                                <div class="card p-fluid">
+                                                    <div class="field grid">
+                                                        <label style="color: #f00;" htmlFor="name3"
+                                                            class="col-12 mb-8 md:col-8 md:mb-0">Campos requeridos
+                                                            (*)</label>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label for="cliente" htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Servicio (*)</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <p-dropdown appendTo="body" [options]="servicios"
+                                                                [(ngModel)]="detalle.servicio"
+                                                                optionLabel="servicioTipo" [filter]="true" id="servicio"
+                                                                name="servicio" #servicio="ngModel" [required]="true"
+                                                                placeholder="Sin seleccionar"></p-dropdown>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label for="cliente" htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Especialista
+                                                            (*)</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <p-dropdown appendTo="body" [options]="especialistas"
+                                                                [(ngModel)]="detalle.especialista"
+                                                                optionLabel="especialistaNombres" [filter]="true"
+                                                                id="especialista" name="especialista"
+                                                                #especialista="ngModel" [required]="true"
+                                                                placeholder="Sin seleccionar"></p-dropdown>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Fecha
+                                                            Programada</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <p-calendar class="p-inputtext-lg"
+                                                                    [(ngModel)]="detalle.detHistoriaFechaProgramada"
+                                                                    [showIcon]="true" dataType="string"
+                                                                    dateFormat="dd-MM-yy"
+                                                                    name="detHistoriaFechaProgramada"
+                                                                    #detHistoriaFechaProgramada="ngModel"></p-calendar>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Fecha Aplicada</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <p-calendar class="p-inputtext-lg"
+                                                                    [(ngModel)]="detalle.detHistoriaFechaAplicada"
+                                                                    [showIcon]="true" dataType="string"
+                                                                    dateFormat="dd-MM-yy"
+                                                                    name="detHistoriaFechaAplicada"
+                                                                    #detHistoriaFechaAplicada="ngModel"></p-calendar>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Fármaco</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-palette"></i>
+                                                                <input type="text" class="p-inputtext-lg" pInputText
+                                                                    [(ngModel)]="detalle.detHistoriaFarmaco"
+                                                                    name="detHistoriaFarmaco"
+                                                                    #detHistoriaFarmaco="ngModel" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Tratamiento</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-palette"></i>
+                                                                <input type="text" class="p-inputtext-lg" pInputText
+                                                                    [(ngModel)]="detalle.detHistoriaTratamiento"
+                                                                    name="detHistoriaTratamiento"
+                                                                    #detHistoriaTratamiento="ngModel" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Peso</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-palette"></i>
+                                                                <input type="number" class="p-inputtext-lg" pInputText
+                                                                    [(ngModel)]="detalle.detHistoriaPeso"
+                                                                    name="detHistoriaPeso" #detHistoriaPeso="ngModel" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Observaciones</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <i class="pi pi-align-left"></i>
+                                                                <textarea style="font-size: 18px;" pInputText
+                                                                    [(ngModel)]="detalle.detHistoriaObservaciones"
+                                                                    name="detHistoriaObservaciones"
+                                                                    #detHistoriaObservaciones="ngModel" rows="3"
+                                                                    cols="30" pInputTextarea
+                                                                    [autoResize]="true"></textarea>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="field grid">
+                                                        <label htmlFor="name3"
+                                                            class="col-12 mb-4 md:col-4 md:mb-0">Estado</label>
+                                                        <div class="col-12 md:col-8">
+                                                            <span class="p-input-icon-left">
+                                                                <p-dropdown [options]="estado" class="p-inputtext-lg"
+                                                                    [(ngModel)]="detalle.detHistoriaEstado"
+                                                                    name="detHistoriaEstado"
+                                                                    #detHistoriaEstado="ngModel"></p-dropdown>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p-button icon="pi pi-save" label="Actualizar" type="submit"
+                                            [disabled]="!detalleaForm.form.valid"
+                                            styleClass="p-button-text p-button-raised p-button-success"
+                                            (onClick)="actualizacion = false"></p-button>
+                                    </form>
+                                </p-dialog>
+                                <p-dialog header="DETALLE DE HISTORIA VETERINARIA" [(visible)]="detail"
+                                    [style]="{ width: '50vw' }" [modal]="true">
+                                    <h1 style="font-family: 'Poppins', sans-serif;">Datos Completos</h1>
+                                    <p-card>
+                                        <div class="container mb-5" style="text-align: center;">
+                                            <p-avatar icon="pi pi-user" styleClass="mr-2" size="xlarge"
+                                                shape="circle"></p-avatar>
+                                        </div>
+                                        <div style="font-family: 'Poppins', sans-serif; text-align: start;"
+                                            class="container">
+                                            <p-splitter styleClass="mb-5">
+                                                <ng-template pTemplate>
+                                                    <div style="font-family: 'Poppins', sans-serif;"
+                                                        class="col block align-items-center justify-content-center">
+                                                        <h4><b>ID: </b></h4>
+                                                        <h4><b>FECHA PROGRAMADA: </b></h4>
+                                                        <h4><b>FECHA APLICADA: </b></h4>
+                                                        <h4><b>FÁRMACO: </b></h4>
+                                                        <h4><b>PESO DE NACIMIENTO: </b></h4>
+                                                        <h4><b>TEATAMIENTOS: </b></h4>
+                                                        <h4><b>ESTADO: </b></h4>
+                                                        <h4><b>FECHA DE CREACION: </b></h4>
+                                                        <h4><b>OBSERVACIONES: </b></h4>
+                                                    </div>
+                                                </ng-template>
+                                                <ng-template pTemplate>
+                                                    <div style="font-family: 'Poppins', sans-serif;"
+                                                        class="col block align-items-center justify-content-center">
+                                                        <h4>{{detalle2.detHistoriaId}}</h4>
+                                                        <h4>{{detalle2.detHistoriaFechaProgramada}}</h4>
+                                                        <h4>{{detalle2.detHistoriaFechaAplicada}}</h4>
+                                                        <h4>{{detalle2.detHistoriaFarmaco}}</h4>
+                                                        <h4>{{detalle2.detHistoriaPeso}}</h4>
+                                                        <h4>{{detalle2.detHistoriaTratamiento}}</h4>
+                                                        <h4><p-tag [value]="detalle2.detHistoriaEstado"
+                                                                [severity]="obtenerEstado(detalle2.detHistoriaEstado)"></p-tag>
+                                                        </h4>
+                                                        <h4>{{detalle2.detHistoriaFechaCreacion}}</h4>
+                                                        <h4>{{detalle2.detHistoriaObservaciones}}</h4>
+                                                    </div>
+                                                </ng-template>
+                                            </p-splitter>
+                                            <p-splitter styleClass="mb-5">
+                                                <ng-template pTemplate>
+                                                    <div style="font-family: 'Poppins', sans-serif;"
+                                                        class="col block align-items-center justify-content-center">
+                                                        <h4><b>SERVICIO</b></h4>
+                                                        <h4><b>CATEGORIA : </b>{{detalle2.servicio?.servicioCategoria}}
+                                                        </h4>
+                                                        <h4><b>TIPO : </b>{{detalle2.servicio?.servicioTipo}}</h4>
+                                                        <h4><b>PRECIO : </b> {{detalle2.servicio?.servicioPrecio}}</h4>
+                                                        <div class="field grid">
+                                                            <div class="col-8 md:col-8">
+                                                                <p-button
+                                                                    (click)="detalleServicio(detalle2.servicio.servicioId)"
+                                                                    icon="pi pi-search"
+                                                                    styleClass="p-button-rounded p-button-help p-button-text p-button-raised"
+                                                                    label="Mas informcación"></p-button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </ng-template>
+                                                <ng-template pTemplate>
+                                                    <div style="font-family: 'Poppins', sans-serif;"
+                                                        class="col block align-items-center justify-content-center">
+                                                        <h4><b>ESPECIALISTA</b></h4>
+                                                        <h4><b>DNI : </b>{{detalle2.especialista?.especialistaDNI}}</h4>
+                                                        <h4><b>NOMBRES :
+                                                            </b>{{detalle2.especialista?.especialistaNombres}}</h4>
+                                                        <h4><b>TELEFONO :</b>
+                                                            {{detalle2.especialista?.especialistaTelefono}}</h4>
+                                                        <div class="field grid">
+                                                            <div class="col-8 md:col-8">
+                                                                <p-button
+                                                                    (click)="detalleEspecialista(detalle2.especialista.especialistaId)"
+                                                                    icon="pi pi-search"
+                                                                    styleClass="p-button-rounded p-button-help p-button-text p-button-raised"
+                                                                    label="Mas informcación"></p-button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </ng-template>
+                                            </p-splitter>
+                                        </div>
+                                    </p-card>
+                                </p-dialog>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="detHistoriaFechaCreacion">FECHA CREACION<p-sortIcon
+                                    field="detHistoriaFechaCreacion"></p-sortIcon></th>
+                            <th pSortableColumn="detHistoriaFechaAplicada">FECHA APLICADA<p-sortIcon
+                                    field="detHistoriaFechaAplicada"></p-sortIcon></th>
+                            <th pSortableColumn="detHistoriaEstado">ESTADO<p-sortIcon
+                                    field="detHistoriaEstado"></p-sortIcon></th>
+                            <th pSortableColumn="servicio.servicioTipo">SERVICIO<p-sortIcon
+                                    field="servicio.servicioTipo"></p-sortIcon></th>
+                            <th pSortableColumn="especialista.especialistaNombres">ESPECIALISTA<p-sortIcon
+                                    field="especialista.especialistaNombres"></p-sortIcon></th>
+                            <th>ACCIONES</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <p-columnFilter type="text" field="detHistoriaFechaCreacion"></p-columnFilter>
+                            </th>
+                            <th>
+                                <p-columnFilter type="text" field="detHistoriaFechaAplicada"></p-columnFilter>
+                            </th>
+                            <th>
+                                <p-columnFilter type="text" field="detHistoriaEstado"></p-columnFilter>
+                            </th>
+                            <th>
+                                <p-columnFilter type="text" field="detHistoria.servicio"></p-columnFilter>
+                            </th>
+                            <th>
+                                <p-columnFilter type="text" field="detHistoria.especialista "></p-columnFilter>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns" let-arrayDetalles>
+                        <tr [pSelectableRow]="rowData">
+                            <td>{{arrayDetalles.detHistoriaFechaCreacion}}</td>
+                            <td>{{arrayDetalles.detHistoriaFechaAplicada}}</td>
+                            <td>
+                                <p-tag [value]="arrayDetalles.detHistoriaEstado"
+                                    [severity]="obtenerEstado(arrayDetalles.detHistoriaEstado)"></p-tag>
+                            </td>
+                            <td>{{arrayDetalles.servicio.servicioCategoria}}</td>
+                            <td>{{arrayDetalles.especialista.especialistaNombres}}</td>
+                            <td>
+                                <div class="flex justify-content-start flex-wrap gap-3 mb-4">
+                                    <p-button
+                                        styleClass="p-button-rounded p-button-warning p-button-text p-button-raised"
+                                        icon="pi pi-pencil"
+                                        (click)="showActualizacion(arrayDetalles.detHistoriaId)"></p-button>
+                                    <p-button icon="pi pi-info-circle"
+                                        styleClass="p-button-rounded p-button-info p-button-text p-button-raised"
+                                        (click)="showDetalle(arrayDetalles.detHistoriaId)"></p-button>
+                                    <!-- <p-button icon="pi pi-pencil"
+                                        styleClass="p-button-rounded p-button-warning p-button-text p-button-raised"
+                                        (onClick)="actualizaDetalleHistoria(this.arrayDetalles.detHistoriaId)"></p-button> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
             </div>
             <div class="field grid">
                 <div class="col-12 md:col-12">
